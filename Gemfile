@@ -7,10 +7,15 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'nokogiri'
 gem 'jquery-rails'
+
+#these gems are for styling only
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap_form'
+
+#these gems are for email styling only
 gem 'inky-rb', require: 'inky'
 gem 'premailer-rails'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
