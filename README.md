@@ -1,5 +1,8 @@
 # README
 
+rails server: rails s
+webpack server: ./bin/webpack-dev-server
+
 On Blast
 
 [![Codeship Status for DRBragg/on-blast](https://app.codeship.com/projects/0bfea600-7472-0135-f713-66140c37bafa/status?branch=master)](https://app.codeship.com/projects/243946)
