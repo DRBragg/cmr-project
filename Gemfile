@@ -11,6 +11,9 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 
+#add webpack support for react
+gem 'webpacker'
+
 #these gems are for styling only
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap_form'
