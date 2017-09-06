@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170906203218) do
   create_table "comments", force: :cascade do |t|
     t.text "body", null: false
     t.integer "review_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170906203218) do
     t.date "elected", null: false
     t.string "phone_number", null: false
     t.string "picture_url", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170906203218) do
     t.text "body", null: false
     t.integer "rating", null: false
     t.integer "representative_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
