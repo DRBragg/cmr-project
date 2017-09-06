@@ -1,5 +1,7 @@
 source 'https://rubygems.org/'
 
+ruby '2.4.0'
+
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -35,6 +37,10 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rails_rest_vote'
+  gem 'faker'
+  gem 'phantomjs'
+  gem 'poltergeist'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy', require: false

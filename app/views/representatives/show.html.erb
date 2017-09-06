@@ -1,0 +1,28 @@
+<h1><%= @representative.first_name %> <%= @representative.last_name %></h1>
+<ul>
+  <img src="<%= @representative.picture_url %>">
+  <p><%= @representative.office %></p>
+  <p><%= @representative.party %></p>
+  <p><%= @representative.email %></p>
+  <p><%= @representative.bio %></p>
+  <p><%= @representative.elected %></p>
+  <p><%= @representative.phone_number %></p>
+
+</ul>
+
+<%= link_to "Blast this rep", new_representative_review_path(@representative) %>
+
+<% @reviews.each do |review| %>
+<h3><%= review.headline %></h3>
+<%= review.body %>
+<%= review.rating %><br>
+
+<h4>Comments: </h4>
+<ul>
+  <% @comments[review.id].each do |comment| %>
+    <p><%= comment.body %></p>
+  <% end %>
+  <%= link_to "Comment on this blast", new_representative_review_comment_path(@representative, review) %>
+
+</ul>
+<% end %>
