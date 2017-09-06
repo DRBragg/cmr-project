@@ -10,6 +10,7 @@ class CreateRepresentatives < ActiveRecord::Migration[5.1]
       t.date :elected, null: false
       t.string :phone_number, null: false
       t.string :picture_url, null: false
+      t.integer :user_id, null: false
 
       t.timestamps
     end
