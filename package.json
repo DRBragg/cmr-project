@@ -12,6 +12,8 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "enzyme": "^2.9.1",
+    "jasmine-enzyme": "^3.8.2",
     "webpack-dev-server": "^2.7.1"
   }
 }

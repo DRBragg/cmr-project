@@ -1,0 +1,8 @@
+<h1>Comment on this blast!</h1>
+
+<%= form_for [@representative, @review, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %><br />
+
+  <%= f.submit "Add Comment" %>
+<% end %>

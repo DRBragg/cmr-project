@@ -3,12 +3,13 @@
   <head>
     <title>On Blast</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+    <% flash.each do |key, value| %>
+      <%= value %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -34,6 +34,10 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rails_rest_vote'
+  gem 'faker'
+  gem 'phantomjs'
+  gem 'poltergeist'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
