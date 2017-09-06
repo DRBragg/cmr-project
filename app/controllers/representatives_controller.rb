@@ -1,9 +1,12 @@
 class RepresentativesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @representatives = Representative.all
   end
 
   def show
+    @user = current_user
     @representative = Representative.find(params[:id])
     @reviews = @representative.reviews
     @comments = {}
@@ -13,29 +16,21 @@ class RepresentativesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @representative = Representative.new
   end
 
   def create
+    @user = current_user
     @representative = Representative.create(representative_params)
+    @representative.user = @user
+
     if @representative.save
       redirect_to @representative, notice: "Representative added successfully"
     else
       flash[:alert] = @representative.errors.full_messages.join(', ')
       render :new
     end
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
   end
 
   private

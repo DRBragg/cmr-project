@@ -1,1 +1,9 @@
-<%= javascript_pack_tag 'application' %>
+
+<h1>Edit this comment</h1>
+
+<%= form_for [@representative, @review, @comment], html: { method: :patch } do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %><br />
+
+  <%= f.submit "Update Comment" %>
+<% end %>

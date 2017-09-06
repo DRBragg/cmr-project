@@ -2,7 +2,7 @@
 
 <ul>
   <% @representatives.each do |representative| %>
-  <p><%=link_to representative.first_name, representative_path(representative) %> <%=link_to representative.last_name, representative_path(representative) %></p>
+  <p><%=link_to representative.name, representative_path(representative) %> </p>
   <% end %>
 </ul>
 

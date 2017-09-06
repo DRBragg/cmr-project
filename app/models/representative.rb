@@ -12,5 +12,7 @@ class Representative < ApplicationRecord
   validates :office, presence: true
   validates :user_id, presence: true
 
-
+  def name
+    self.first_name + ' '+ self.last_name
+  end
 end

@@ -2,7 +2,7 @@
 
 <%= form_for [@representative, @review, @comment] do |f| %>
   <%= f.label :body %>
-  <%= f.text_field :body %><br />
+  <%= f.text_area :body %><br />
 
   <%= f.submit "Add Comment" %>
 <% end %>
