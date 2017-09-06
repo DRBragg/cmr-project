@@ -12,8 +12,11 @@ gem 'dotenv-rails'
 #add webpack support for react
 gem 'webpacker'
 
+#add deviser for user auth
+gem 'devise'
+
 #these gems are for styling only
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap_form'
 
 #these gems are for email styling only
