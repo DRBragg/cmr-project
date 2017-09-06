@@ -1,0 +1,9 @@
+<h1>Representatives:</h1>
+
+<ul>
+  <% @representatives.each do |representative| %>
+  <p><%=link_to representative.first_name, representative_path(representative) %> <%=link_to representative.last_name, representative_path(representative) %></p>
+  <% end %>
+</ul>
+
+<%= link_to "Put a new representative on blast!", new_representative_path %>

@@ -15,6 +15,36 @@ ActiveRecord::Schema.define(version: 20170905185040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "office", null: false
+    t.string "email"
+    t.string "party"
+    t.text "bio", null: false
+    t.date "elected", null: false
+    t.string "phone_number", null: false
+    t.string "picture_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "headline", null: false
+    t.text "body", null: false
+    t.integer "rating", null: false
+    t.integer "representative_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
