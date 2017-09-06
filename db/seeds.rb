@@ -18,7 +18,7 @@ require 'faker'
   elected: Date.today,
   phone_number: "#{Faker::PhoneNumber.phone_number}",
   picture_url: "#{Faker::Avatar.image}",
-  user_id: Faker::Number.between(1, 10)
+  user_id: 1
   )
 end
 
@@ -28,7 +28,7 @@ end
   body: "#{Faker::DrWho.quote}",
   rating: "#{Faker::Number.between(1, 5)}",
   representative_id: Faker::Number.between(1, 10),
-  user_id: Faker::Number.between(1, 10)
+  user_id: 1
   )
 end
 
@@ -36,7 +36,7 @@ end
   Comment.create(
   body: "#{Faker::ChuckNorris.fact}",
   review_id: Faker::Number.between(1, 100),
-  user_id: Faker::Number.between(1, 10)
+  user_id: 1
   )
 
 end
