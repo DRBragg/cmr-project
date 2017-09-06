@@ -7,9 +7,53 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
+<<<<<<< HEAD
     <% flash.each do |key, value| %>
       <%= value %>
     <% end %>
     <%= yield %>
+=======
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'On Blast', root_path, class: "navbar-brand" %>
+        </div>
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Sign In", new_user_session_path %>
+            </li>
+          <% end %>>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if !flash.empty? %>
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <% flash.each do |key, value| %>
+                <% if key == 'notice' %>
+                  <div class="alert alert-success"><%= value %></div>
+                <% elsif key == 'alert' %>
+                  <div class="alert alert-danger"><%= value %></div>
+                <% else %>
+                  <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+      <%= yield %>
+    </div>
+>>>>>>> master
   </body>
 </html>
