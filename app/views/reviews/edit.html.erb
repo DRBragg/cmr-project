@@ -1,1 +1,12 @@
-<%= javascript_pack_tag 'application' %>
+<h1>Edit this review</h1>
+
+<%= form_for [@representative, @review], html: { method: :patch } do |f| %>
+  <%= f.label :headline %>
+  <%= f.text_field :headline %><br />
+  <%= f.label :body %>
+  <%= f.text_field :body %><br />
+  <%= f.label :rating %>
+  <%= f.text_field :rating %><br />
+
+  <%= f.submit "Update Review" %>
+<% end %>

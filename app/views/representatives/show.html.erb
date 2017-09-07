@@ -17,6 +17,13 @@
 <%= review.body %><br>
 Rating: <%= review.rating %>/5<br>
 Reviewed by: <%= review.user.first_name %>
+<% if @user == review.user %>
+  <%= link_to "Edit Review", edit_representative_review_path(@representative, review) %>
+  <%= button_to "Delete Review", {controller: "reviews", action: "destroy", representative_id: @representative.id, review_id: review.id}, method: :delete %>
+
+<% end %>
+
+
 
 <%= button_to "Upvote", {controller: "upvotes", action: "create", representative_id: @representative.id, review_id: review.id}, method: :post %><br  />
 <%= review.votes %><br  />
