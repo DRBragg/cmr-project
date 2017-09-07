@@ -52,10 +52,6 @@ class CommentsController < ApplicationController
     @representative = Representative.find(params[:representative_id])
     @review = Review.find(params[:review_id])
     @comment = Comment.find(params[:id])
-    unless @user == @comment.user
-      flash[:alert] =  "You are not the comments owner"
-      redirect_back(fallback_location: root_path)
-    end
     @comment.destroy
     redirect_to @representative
   end
