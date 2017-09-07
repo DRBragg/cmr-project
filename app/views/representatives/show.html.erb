@@ -18,6 +18,10 @@
 Rating: <%= review.rating %>/5<br>
 Reviewed by: <%= review.user.first_name %>
 
+<%= button_to "Upvote", {controller: "upvotes", action: "create", representative_id: @representative.id, review_id: review.id}, method: :post %><br  />
+<%= review.votes %><br  />
+<%= button_to "Downvote", {controller: "downvotes", action: "create", representative_id: @representative.id, review_id: review.id}, method: :post %>
+
 <h4>Comments: </h4>
 <ul>
   <% @comments[review.id].each do |comment| %>
