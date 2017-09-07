@@ -2,11 +2,11 @@ class RepresentativesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @user = current_user
     @representatives = Representative.all
   end
 
   def show
-    @user = current_user
     @representative = Representative.find(params[:id])
     @reviews = @representative.reviews
     @comments = {}
@@ -31,6 +31,27 @@ class RepresentativesController < ApplicationController
       flash[:alert] = @representative.errors.full_messages.join(', ')
       render :new
     end
+  end
+
+  def edit
+    @representative = Representative.find(params[:id])
+  end
+
+  def update
+    @representative = Representative.find(params[:id])
+
+    if @representative.update(representative_params)
+      redirect_to root_path, notice: "Representative updated successfully"
+    else
+      flash[:alert] = @representative.errors.full_messages.join(' , ')
+      render :edit
+    end
+  end
+
+  def destroy
+    @representative = Representative.find(params[:id])
+    @representative.destroy
+    redirect_to root_path
   end
 
   private
