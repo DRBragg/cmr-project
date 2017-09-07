@@ -1,6 +1,7 @@
 #allows coveralls to use rspec and run our rspec tests
 require 'coveralls'
 Coveralls.wear!('rails')
+require 'database_cleaner'
 
 require 'capybara/poltergeist'
 Capybara.register_driver :poltergeist do |app|
@@ -16,7 +17,8 @@ Capybara.javascript_driver = :poltergeist
 Capybara.server_port = 3001
 
 RSpec.configure do |config|
-    config.expect_with :rspec do |expectations|
+
+  config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
     config.mock_with :rspec do |mocks|

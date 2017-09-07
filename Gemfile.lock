@@ -71,6 +71,7 @@ GEM
       tins (~> 1.6)
     css_parser (1.5.0)
       addressable
+    database_cleaner (1.6.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -304,6 +305,7 @@ DEPENDENCIES
   bootstrap_form
   capybara
   coveralls
+  database_cleaner
   devise
   dotenv-rails
   factory_girl_rails

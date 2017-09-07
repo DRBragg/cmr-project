@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     @review = Review.find(params[:review_id])
-    @representative = Representative.find(params[:representative_id])
+    @representative = Representative.find_by(params[:representative_id])
     @comment = Comment.create(comment_params)
     @comment.review = @review
     @comment.user = @user
