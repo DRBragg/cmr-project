@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    body "It sucks"
+    body "It dfhsdklfghfdsklgvjflgjvsdlgkvjsndgvlsdjvms;ld.cvnslcvsucks"
     review
     user
   end

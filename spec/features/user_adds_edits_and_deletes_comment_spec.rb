@@ -72,11 +72,11 @@ feature "User does stuff with comments" do
     click_link representative1.name
     click_link "Edit Comment"
 
-    fill_in "Body", with: "EDITED!"
+    fill_in "Body", with: "EDITED COMMENT THAT MEETS THE REQUIREMENTS!"
     click_button "Update Comment"
 
     expect(page).to have_content("Comment updated successfully")
-    expect(page).to have_content("EDITED!")
+    expect(page).to have_content("EDITED COMMENT THAT MEETS THE REQUIREMENTS!")
   end
 
   scenario "User deletes comment" do

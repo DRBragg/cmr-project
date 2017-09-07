@@ -30,7 +30,7 @@ feature "User adds new representative" do
     fill_in "Party", with: "Republican"
     fill_in "Elected", with: Date.today
     fill_in "Bio", with: "Bob is a virgin"
-    fill_in "Phone number", with: "1234567890"
+    fill_in "Phone number", with: "123-456-7890"
     fill_in "Picture url", with: "http://www.bobjones.org/AAA%20Pics%204%20Bios/Bob_1.jpg"
 
     click_button "Add Representative"
@@ -48,6 +48,6 @@ feature "User adds new representative" do
 
       click_button "Add Representative"
 
-      expect(page).to have_content("First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Elected can't be blank, Phone number can't be blank, Picture url can't be blank")
+      expect(page).to have_content("Phone number can't be blank, Phone number is invalid, First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Bio is too short (minimum is 10 characters), Elected can't be blank, Picture url can't be blank, Email is invalid")
     end
 end
