@@ -79,6 +79,21 @@ feature "User does stuff with comments" do
     expect(page).to have_content("EDITED COMMENT THAT MEETS THE REQUIREMENTS!")
   end
 
+  scenario "User edit comment successful" do
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: user1.email
+    fill_in "user_password", with: user1.password
+    click_button "Sign In"
+    click_link representative1.name
+    click_link "Edit Comment"
+
+    fill_in "Body", with: "A"
+    click_button "Update Comment"
+
+    expect(page).to have_content("Body is too short (minimum is 10 characters)")
+  end
+
   scenario "User deletes comment" do
     visit root_path
     click_link "Sign In"
