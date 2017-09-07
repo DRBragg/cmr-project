@@ -2,12 +2,11 @@ class Representative < ApplicationRecord
   has_many :reviews
   belongs_to :user
 
-  def before_validation_on_create
-      self.phone_number = phone_number.gsub(/[^0-9]/, "")
-   end
 
-   validates_presence_of :phone_number
-   validates_length_of :phone_number, :is=>10
+
+   validates :phone_number, presence: true, format:
+     { with: /[\w]{3}-[\w]{3}-[\w]{4}/ }
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -17,6 +16,7 @@ class Representative < ApplicationRecord
   validates :picture_url, presence: true
   validates :office, presence: true
   validates :user_id, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, allow_nil: true
 
   def name
     self.first_name + ' '+ self.last_name
