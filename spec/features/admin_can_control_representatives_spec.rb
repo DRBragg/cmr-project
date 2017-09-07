@@ -42,6 +42,19 @@ feature "Admin lords over representatives" do
     expect(page).to have_content("Representative updated successfully")
   end
 
+  scenario "Admin unsuccessfully edits representative" do
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: admin.email
+    fill_in "user_password", with: admin.password
+    click_button "Sign In"
+    click_link "Edit Representative"
+    fill_in "First name", with: ""
+
+    click_button "Update Representative"
+    expect(page).to have_content("First name can't be blank")
+  end
+
   scenario "Admin can delete representatives" do
     visit root_path
     click_link "Sign In"
