@@ -6,5 +6,8 @@ FactoryGirl.define do
     password_confirmation "password"
     first_name "Guy"
     last_name "Fieri"
+    after :create do |b|
+      b.update_column(:avatar, "spec/fixtures/image.jpg")
+    end
   end
 end
