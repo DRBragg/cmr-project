@@ -11,6 +11,7 @@
         <%= f.email_field :email, autofocus: true %>
         <%= f.password_field :password, autocomplete: "off" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", label: "Password Confirmation" %>
+        <%= f.file_field :avatar %>
         <%= f.submit "Sign Up", class: "btn btn-primary" %>
     <% end %>
 

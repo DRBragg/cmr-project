@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
-    <h1>Edit <%= resource_name.to_s.humanize %></h1>
+    <h1>Edit <%= current_user.first_name %>'s Profile</h1>
   </div>
 </div>
 <div class="row">
@@ -8,7 +8,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-
+    <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar? %>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.text_field :first_name, autofocus: true, label: "First Name" %>
         <%= f.text_field :last_name, autofocus: true, label: "Last Name" %>
@@ -16,6 +16,7 @@
 
         <%= f.password_field :password, autocomplete: "off" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", label: "Password Confirmation" %>
+        <%= f.file_field :avatar %>
         <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>
 

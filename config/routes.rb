@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'representatives#index'
+  resources :users, only: [:show, :edit, :update]
 
   resources :representatives do
     resources :reviews do
@@ -11,5 +13,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  devise_for :users
+
 end
