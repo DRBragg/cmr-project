@@ -3,6 +3,10 @@
 <ul>
   <% @representatives.each do |representative| %>
   <p><%=link_to representative.name, representative_path(representative) %> </p>
+    <% if user_signed_in? && @user.admin %>
+      <%= link_to "Edit Representative", edit_representative_path(representative) %>
+      <%= button_to "Delete Representative", {controller: "representatives", action: "destroy", id: representative.id}, method: :delete %>
+    <% end %>
   <% end %>
 </ul>
 

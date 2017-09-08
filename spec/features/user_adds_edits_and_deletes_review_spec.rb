@@ -81,6 +81,21 @@ feature "User does stuff with reviews" do
     expect(page).to have_content("EDITED REVIEW THAT MEETS THE REQUIREMENTS!")
   end
 
+  scenario "User edit review unsuccessful" do
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: user1.email
+    fill_in "user_password", with: user1.password
+    click_button "Sign In"
+    click_link representative1.name
+    click_link "Edit Review"
+
+    fill_in "Body", with: ""
+    click_button "Update Review"
+
+    expect(page).to have_content("Body can't be blank , Body is too short (minimum is 10 characters)")
+  end
+
   scenario "User deletes review" do
     visit root_path
     click_link "Sign In"

@@ -5,7 +5,7 @@ class Representative < ApplicationRecord
 
 
    validates :phone_number, presence: true, format:
-     { with: /[\w]{3}-[\w]{3}-[\w]{4}/ }
+    { with: /\A[\w]{3}-[\w]{3}-[\w]{4}\z/ }
 
 
   validates :first_name, presence: true
