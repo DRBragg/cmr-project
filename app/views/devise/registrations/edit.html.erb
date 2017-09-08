@@ -9,15 +9,11 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-<<<<<<< HEAD
+
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), label_errors: true, html: { method: :put }) do |f| %>
-=======
-    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
->>>>>>> c8efc475e870fbf89fc0b5c63d46b98a616591c0
         <%= f.text_field :first_name, autofocus: true, label: "First Name" %>
         <%= f.text_field :last_name, autofocus: true, label: "Last Name" %>
         <%= f.email_field :email, autofocus: true %>
-
         <%= f.password_field :password, autocomplete: "off" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", label: "Password Confirmation" %>
         <%= f.file_field :avatar %>
