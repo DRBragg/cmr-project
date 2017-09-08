@@ -13,3 +13,7 @@
 <% if user_signed_in? %>
 <%= link_to "Put a new representative on blast!", new_representative_path %>
 <% end %>
+
+<% if @representatives.blank? %>
+  <h4>There are no representatives containing <%= params[:search] %>.</h4>
+<% end %>

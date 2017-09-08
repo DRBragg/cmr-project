@@ -21,4 +21,9 @@ class Representative < ApplicationRecord
   def name
     self.first_name + ' '+ self.last_name
   end
+
+  def self.search(search)
+    where("first_name LIKE ? OR last_name LIKE ? OR office LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
+
 end
