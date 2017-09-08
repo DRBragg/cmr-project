@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   end
 
 
+
+  resources :reviews do
+    resources :upvotes
+    resources :downvotes
+  end
+
+  devise_for :users
 end
