@@ -2,3 +2,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+
+.nav-link-right {
+  float: right;
+}
+
+ul li img {
+    vertical-align: middle;
+    padding-top: 3px;
+}

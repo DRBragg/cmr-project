@@ -16,7 +16,7 @@ require 'faker'
   party: "#{Faker::Demographic.demonym}",
   bio: "#{Faker::HeyArnold.quote}",
   elected: Date.today,
-  phone_number: "#{Faker::PhoneNumber.phone_number}",
+  phone_number: "333-333-3333",
   picture_url: "#{Faker::Avatar.image}",
   user_id: 1
   )
@@ -38,5 +38,6 @@ end
   review_id: Faker::Number.between(1, 100),
   user_id: 1
   )
+
 
 end
