@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'dotenv-rails'
+gem 'carrierwave', '~> 1.0'
 
 #add webpack support for react
 gem 'webpacker'
@@ -49,7 +50,6 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'database_cleaner'
-  gem 'carrierwave', '~> 1.0'
   gem 'mini_magick', '3.8.0'
 end
 
