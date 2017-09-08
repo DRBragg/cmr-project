@@ -36,6 +36,7 @@ feature "User adds new representative" do
     click_button "Add Representative"
 
     expect(page).to have_content("Representative added successfully")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
     scenario "Create is unsuccessful" do

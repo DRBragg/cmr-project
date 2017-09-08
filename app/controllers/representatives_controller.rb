@@ -26,6 +26,7 @@ class RepresentativesController < ApplicationController
     @representative.user = @user
 
     if @representative.save
+      RepresentativeMailer.new_representative(@representative).deliver_later
       redirect_to @representative, notice: "Representative added successfully"
     else
       flash[:alert] = @representative.errors.full_messages.join(', ')
