@@ -26,6 +26,13 @@ Reviewed by: <%= review.user.first_name %>
 
 
 
+<%= button_to "Upvote", {controller: "upvotes", action: "create", review_id: review.id}, method: :post %><br  />
+<div id="review<%= review.id %>">
+  <%= review.votes %>
+</div>
+<br  />
+<%= button_to "Downvote", {controller: "downvotes", action: "create", review_id: review.id}, method: :post %>
+
 <h4>Comments: </h4>
 <ul>
   <% @comments[review.id].each do |comment| %>

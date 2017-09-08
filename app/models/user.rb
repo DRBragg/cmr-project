@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :comments
   has_many :representatives
+  has_many :upvotes
+  has_many :downvotes
+  has_many :reviews, :through => :upvotes
+  has_many :reviews, :through => :downvotes
 end
