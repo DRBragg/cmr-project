@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
-    <h1>Edit <%= current_user.first_name %>'s Profile</h1>
+    <h1>Edit <%= current_user.first_name %>'s Profile</h1><br />
+    <%= image_tag(current_user.avatar.url, size: "400x400") if current_user.avatar? %>
   </div>
 </div>
 <div class="row">
@@ -8,7 +9,6 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-    <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar? %>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.text_field :first_name, autofocus: true, label: "First Name" %>
         <%= f.text_field :last_name, autofocus: true, label: "Last Name" %>
