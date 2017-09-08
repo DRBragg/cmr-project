@@ -18,6 +18,4 @@ Rails.application.routes.draw do
     resources :upvotes
     resources :downvotes
   end
-
-  devise_for :users
 end
