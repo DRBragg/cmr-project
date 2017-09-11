@@ -49,6 +49,8 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'mailcatcher'
 end
 
 group :production do

@@ -3,6 +3,9 @@ require 'coveralls'
 Coveralls.wear!('rails')
 require 'database_cleaner'
 
+require File.expand_path('../../config/environment', __FILE__)
+require 'email_spec'
+
 require 'capybara/poltergeist'
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, {
@@ -29,4 +32,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
 end

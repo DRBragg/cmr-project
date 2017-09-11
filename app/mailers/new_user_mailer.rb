@@ -1,6 +1,6 @@
 class NewUserMailer < ApplicationMailer
   def new_user(user)
-    @user = user
+    @user = current_user
 
     mail(
       to: user.email,

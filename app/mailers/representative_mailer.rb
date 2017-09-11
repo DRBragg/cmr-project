@@ -4,7 +4,7 @@ class RepresentativeMailer < ApplicationMailer
 
     mail(
       to: representative.user.email,
-      subject: "New Representative for #{representative.name}"
+      subject: "Representative Confirmed"
     )
   end
 end

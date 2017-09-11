@@ -3,8 +3,8 @@ class CommentMailer < ApplicationMailer
     @comment = comment
 
     mail(
-      to: comment.representative.user.email,
-      subject: "New Comment for #{comment.review.name}"
+      to: comment.review.user.email,
+      subject: "New Comment for #{comment.review}"
     )
   end
 end
