@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     @comment.user = @user
 
     if @comment.save
+      CommentMailer.new_comment(@comment).deliver_now
       redirect_to @representative, notice: "Comment added successfully"
     else
       flash[:alert] = @comment.errors.full_messages.join(' , ')

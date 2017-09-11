@@ -50,6 +50,8 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'mailcatcher'
   gem 'mini_magick', '3.8.0'
 end
 

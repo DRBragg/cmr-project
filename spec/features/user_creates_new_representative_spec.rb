@@ -16,6 +16,8 @@ feature "User adds new representative" do
   end
 
   scenario "Create is successful" do
+    ActionMailer::Base.deliveries = []
+
     visit root_path
     click_link "Sign In"
     fill_in "Email", with: user1.email
@@ -32,10 +34,13 @@ feature "User adds new representative" do
     fill_in "Bio", with: "Bob is a virgin"
     fill_in "Phone number", with: "123-456-7890"
     fill_in "Picture url", with: "http://www.bobjones.org/AAA%20Pics%204%20Bios/Bob_1.jpg"
-
     click_button "Add Representative"
-
     expect(page).to have_content("Representative added successfully")
+
+    expect(ActionMailer::Base.deliveries.size).to eq(1)
+    last_email = ActionMailer::Base.deliveries.last
+    expect(last_email).to have_subject('Representative Confirmed')
+    expect(last_email).to deliver_to(user1.email)
   end
 
     scenario "Create is unsuccessful" do

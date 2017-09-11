@@ -33,7 +33,7 @@ feature "User does stuff with comments" do
 
     expect(page).to have_content("Comment added successfully")
     expect(page).to have_content("TESTCOMMENT!")
-
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "User add comment unsuccessful" do

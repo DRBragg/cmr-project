@@ -34,7 +34,7 @@ feature "User does stuff with reviews" do
 
     expect(page).to have_content("Review added successfully")
     expect(page).to have_content("This dude totally sucks ass")
-
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "User add review unsuccessful" do
