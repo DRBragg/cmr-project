@@ -12,23 +12,6 @@ class RepresentativesIndexContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/representatives')
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        representatives: body
-      })
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
 
   }
 
@@ -45,7 +28,6 @@ class RepresentativesIndexContainer extends React.Component {
 
     return (
       <div className="RepresentativesIndexContainer">
-        <h1>REPRESENTATIVES CONTAINER!!!!</h1>
         <p>{representatives}</p>
 
       </div>

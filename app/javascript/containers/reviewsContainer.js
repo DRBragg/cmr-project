@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewComponent from '../components/reviewComponent'
 
 class ReviewsContainer extends React.Component {
   constructor(props) {
@@ -8,13 +9,13 @@ class ReviewsContainer extends React.Component {
   }
   componentDidMount() {
 
-
   }
 
   render() {
     let reviews = this.props.reviews.map(review => {
       return(
-        review.body
+        <ReviewComponent
+        />
       )
     })
     return (

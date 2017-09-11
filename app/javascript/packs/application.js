@@ -12,6 +12,7 @@ import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import RepresentativesIndexContainer from '../containers/RepresentativesIndexContainer';
 import RepresentativeShowContainer from '../containers/RepresentativeShowContainer';
 import ReviewsContainer from '../containers/reviewsContainer';
+import NavBar from '../components/navBar'
 
 class Application extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Application extends React.Component {
 
     return (
       <Router history={browserHistory}>
-        <Route path="/" >
+        <Route path="/" component={NavBar}>
           <IndexRoute component={RepresentativesIndexContainer}/>
           <Route path="/representatives" component={RepresentativesIndexContainer}/>
           <Route path="/representatives/:id" component={RepresentativeShowContainer}/>

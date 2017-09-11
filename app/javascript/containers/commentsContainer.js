@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentComponent from '../components/commentComponent'
 class CommentsContainer extends React.Component {
   constructor(props) {
     super(props);
