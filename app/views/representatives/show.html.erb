@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'main' %>
 <h1><%= @representative.first_name %> <%= @representative.last_name %></h1>
 <ul>
   <img src="<%= @representative.picture_url %>">
@@ -14,6 +15,7 @@
 
 <% @reviews.each do |review| %>
 <h3><%= review.headline %></h3>
+<h4><%= @review_vote_total %></h4>
 <%= review.body %><br>
 Rating: <%= review.rating %>/5<br>
 Reviewed by: <%= review.user.first_name %>

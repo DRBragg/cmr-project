@@ -7,4 +7,33 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import React from 'react';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import RepresentativesIndexContainer from '../containers/RepresentativesIndexContainer';
+import RepresentativeShowContainer from '../containers/RepresentativeShowContainer';
+import ReviewsContainer from '../containers/reviewsContainer';
+
+class Application extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  render() {
+
+    return (
+      <Router history={browserHistory}>
+        <Route path="/" >
+          <IndexRoute component={RepresentativesIndexContainer}/>
+          <Route path="/representatives" component={RepresentativesIndexContainer}/>
+          <Route path="/representatives/:id" component={RepresentativeShowContainer}/>
+        </Route>
+      </Router>
+
+    );
+  }
+}
+
+export default Application;

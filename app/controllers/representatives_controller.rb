@@ -4,6 +4,7 @@ class RepresentativesController < ApplicationController
   def index
     @user = current_user
     @representatives = Representative.all
+
     if params[:search]
       @representatives = Representative.search(params[:search]).order("created_at DESC")
     else
