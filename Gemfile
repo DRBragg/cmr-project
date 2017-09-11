@@ -13,7 +13,8 @@ gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
 
 #add webpack support for react
-gem 'webpacker'
+gem 'webpacker', '~> 3.0'
+gem 'react_on_rails', '~> 9.0.1'
 
 #add deviser for user auth
 gem 'devise'
