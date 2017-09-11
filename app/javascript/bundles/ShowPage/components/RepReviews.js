@@ -7,10 +7,11 @@ import ReviewComments from './ReviewComments';
 
 const RepReviews = (props) => {
   let repReviews = props.reviews.map(review => {
+    let reviewID = review.id
     return(
       <Grid>
         <RepReview review={review} />
-        <ReviewComments comments={review.comments}/>
+        <ReviewComments comments={props.comments[reviewID]}/>
       </Grid>
     )
   })

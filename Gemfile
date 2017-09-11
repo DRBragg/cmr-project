@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'foreman'
 
 #add webpack support for react
 gem 'webpacker', '~> 3.0'
@@ -59,3 +60,5 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby

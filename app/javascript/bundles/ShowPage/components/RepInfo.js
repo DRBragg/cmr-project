@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, PanelGroup, Panel } from 'react-bootstrap';
-import RepCard from './RepCard';
 
 
 const RepInfo = (props) => {

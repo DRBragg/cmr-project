@@ -10,7 +10,7 @@ const RepPage = (props) => {
     <Grid>
       <PageTitle title={props.rep.name} />
       <RepData rep={props.rep}/>
-      <RepReviews reviews={props.rep.reviews}/>
+      <RepReviews reviews={props.reviews} comments={props.comments}/>
     </Grid>
   )
 }
