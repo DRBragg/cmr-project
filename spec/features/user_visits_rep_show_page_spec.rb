@@ -10,17 +10,17 @@ feature "User visits a representative's show page", js: true, server_rendering: 
     visit root_path
     click_on "View Rep"
 
-    expect(page).to_not have_content("Edit Comment")
-    expect(page).to_not have_button("Delete Comment")
-
+    expect(page).to_not have_content("Edit Review")
   end
 
   scenario "User is signed in" do
     visit root_path
     click_link "Sign In"
+
     fill_in "Email", with: user1.email
     fill_in "user_password", with: user1.password
     click_button "Sign In"
+
     click_on "View Rep"
 
     page.find('a', :text => 'Biography').click
@@ -42,9 +42,6 @@ feature "User visits a representative's show page", js: true, server_rendering: 
 
     expect(page).to have_content(comment1.body)
 
-    # expect(page).to have_content("Edit Comment")
-    # expect(page).to have_button("Delete Comment")
-    # expect(page).to have_content("Blast this rep")
-    # expect(page).to have_content("Comment on this blast")
+    expect(page).to have_content("Edit Review")
   end
 end

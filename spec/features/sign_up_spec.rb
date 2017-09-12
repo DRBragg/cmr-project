@@ -13,7 +13,7 @@ feature "Vistor signs up as a new user", js: true, server_rendering: true do
     click_button 'Sign Up'
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_button("Sign Out")
     expect(page).to_not have_content("Sign Up")
   end
 
