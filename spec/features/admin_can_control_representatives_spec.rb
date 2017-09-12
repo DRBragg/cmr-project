@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Admin lords over representatives" do
+feature "Admin lords over representatives", js: true, server_rendering: true do
   let!(:admin) {FactoryGirl.create(:user, admin: true)}
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:representative1) {FactoryGirl.create(:representative, user: user1)}

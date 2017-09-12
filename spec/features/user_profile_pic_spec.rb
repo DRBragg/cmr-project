@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User visits home page looking for profile picture" do
+feature "User visits home page looking for profile picture", js: true, server_rendering: true do
   let!(:user2) {FactoryGirl.create(:user, avatar: nil)}
   let!(:representative1) {FactoryGirl.create(:representative)}
 

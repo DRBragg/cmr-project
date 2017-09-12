@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Vistor signs up as a new user" do
+feature "Vistor signs up as a new user", js: true, server_rendering: true do
   scenario "specifies vaild and required information" do
     visit root_path
     click_link 'Sign Up'

@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'foreman'
+gem 'mini_magick', '3.8.0'
 
 #add webpack support for react
 gem 'webpacker', '~> 3.0'
@@ -34,15 +35,19 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-#for coveralls
 group :test do
-  gem 'coveralls', require: false
+  gem "capybara-screenshot"
+  gem "chromedriver-helper"
+  gem "coveralls", require: false
+  gem "database_cleaner"
+  gem "generator_spec"
+  gem "rspec-retry"
+  gem "selenium-webdriver", "<3.0.0"
 end
 
 group :development, :test do
-  gem 'rails_rest_vote'
   gem 'faker'
-  gem 'phantomjs'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'poltergeist'
   gem 'capybara'
   gem 'factory_girl_rails'
@@ -51,8 +56,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-  gem 'database_cleaner'
-  gem 'mini_magick', '3.8.0'
 end
 
 group :production do

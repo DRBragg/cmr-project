@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User does stuff with comments" do
+feature "User does stuff with comments", js: true, server_rendering: true do
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:representative1) {FactoryGirl.create(:representative, user: user1)}
   let!(:review1) {FactoryGirl.create(:review, representative: representative1, user: user1)}

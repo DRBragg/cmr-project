@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Vistor signs in to their account" do
+feature "Vistor signs in to their account", js: true, server_rendering: true do
   scenario "User enters valid information to sign in" do
     #will be replaced with factory girl
     visit root_path
@@ -58,7 +58,7 @@ feature "Vistor signs in to their account" do
     fill_in 'user_password', with: 'password2'
     click_button 'Sign In'
     click_link 'Sign Out'
-  
+
     expect(page).to have_content('Sign In')
     expect(page).to_not have_content("Sign Out")
     expect(page).to have_content("Signed out successfully.")

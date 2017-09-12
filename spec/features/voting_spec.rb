@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User can upvote or downvote a review" do
+feature "User can upvote or downvote a review", js: true, server_rendering: true do
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:representative1) {FactoryGirl.create(:representative, user: user1)}
   let!(:review1) {FactoryGirl.create(:review, representative: representative1, user: user1)}
