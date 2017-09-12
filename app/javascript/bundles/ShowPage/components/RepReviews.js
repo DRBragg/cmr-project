@@ -9,7 +9,7 @@ const RepReviews = (props) => {
   let repReviews = props.reviews.map(review => {
     let reviewID = review.id
     return(
-      <Grid>
+      <Grid key={review.id}>
         <RepReview review={review} />
         <ReviewComments comments={props.comments[reviewID]}/>
       </Grid>

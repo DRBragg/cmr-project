@@ -7,6 +7,9 @@ class RepresentativesController < ApplicationController
 
     if params[:search]
       @representatives = Representative.search(params[:search]).order("created_at DESC")
+      if @representatives.empty?
+        flash[:warning] = "There are no representatives matching your search"
+      end
     else
       @representatives = Representative.all.order("created_at DESC")
     end
