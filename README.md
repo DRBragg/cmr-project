@@ -21,4 +21,6 @@ to start dev server run:
 
 $ `foreman start -f Procfile.dev`
 
-testing can still be done with $ `rspec`
+testing can still be done with $ `rspec`, BUT!
+
+first run $ `brew install phantomjs` so that our tests will run with our headless browser
