@@ -22,7 +22,7 @@ require 'faker'
   )
 end
 
-100.times do
+100.times do 
   Review.create(
   headline: "#{Faker::DrWho.catch_phrase}",
   body: "#{Faker::DrWho.quote}",
