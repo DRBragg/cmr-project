@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '3.8.0'
 
 #add webpack support for react
 gem 'webpacker'
@@ -38,7 +39,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rails_rest_vote'
   gem 'faker'
   gem 'phantomjs'
   gem 'poltergeist'
@@ -52,7 +52,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'mailcatcher'
-  gem 'mini_magick', '3.8.0'
 end
 
 group :production do
