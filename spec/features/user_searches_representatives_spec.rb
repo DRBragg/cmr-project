@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 
-feature "User uses OnBlast's formative Search functionality" do
+feature "User uses OnBlast's formative Search functionality", js: true, server_rendering: true do
 
   let!(:representative1) {FactoryGirl.create(:representative)}
   let!(:representative2) {FactoryGirl.create(:representative, office: "garbageman")}

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Admin can destroy reviews and comments" do
+feature "Admin can destroy reviews and comments", js: true, server_rendering: true do
   let!(:admin) {FactoryGirl.create(:user, admin: true)}
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:representative1) {FactoryGirl.create(:representative, user: user1)}

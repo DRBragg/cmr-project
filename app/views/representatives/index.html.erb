@@ -18,6 +18,4 @@
   <h4>There are no representatives containing <%= params[:search] %>.</h4>
 <% end %> -->
 
-<!-- <%= javascript_pack_tag 'hello_react' %> -->
-
-<%= react_component("IndexPage", props: { data: @representatives, title: "Represenatives" }, prerender: true) %>
+<%= react_component("IndexPage", props: { data: @representatives, title: "Represenatives" }, prerender: false) %>

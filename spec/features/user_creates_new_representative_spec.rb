@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User adds new representative" do
+feature "User adds new representative", js: true, server_rendering: true do
   let!(:user1) {FactoryGirl.create(:user)}
 
   scenario "User visits create page" do

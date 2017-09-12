@@ -6,7 +6,7 @@ import RepCard from './RepCard';
 const CardsGroup = (props) => {
   let cards = props.reps.map(rep => {
     return(
-      <RepCard rep={rep} />
+      <RepCard key={rep.id} rep={rep} />
     )
   })
 
