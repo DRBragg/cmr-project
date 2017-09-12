@@ -3,14 +3,14 @@ import { Grid } from 'react-bootstrap';
 import PageTitle from './PageTitle';
 import RepData from './RepData';
 import RepReviews from './RepReviews';
-
+import ReviewForm from './reviewForm'
 
 const RepPage = (props) => {
   return(
     <Grid>
       <PageTitle title={props.rep.first_name + " " + props.rep.last_name} />
       <RepData rep={props.rep}/>
-      <RepReviews reviews={props.reviews} comments={props.comments}/>
+      <RepReviews reviews={props.reviews} comments={props.comments} user={props.user}/>
     </Grid>
   )
 }

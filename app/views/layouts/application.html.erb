@@ -16,7 +16,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              <%= button_to("Sign Out", destroy_user_session_path, method: :delete, class: "navbar-form btn btn-link") %>
             </li>
             <li>
               <%= image_tag(current_user.avatar.url, size: "40x40", class:"img-circle") if current_user.avatar? %> <%= link_to current_user.first_name, edit_user_registration_path, class: "nav-link-right"%>
@@ -40,7 +40,7 @@
     <div class="container">
       <% if !flash.empty? %>
           <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-8 col-sm-offset-2">
               <% flash.each do |key, value| %>
                 <% if key == 'notice' %>
                   <div class="alert alert-success"><%= value %></div>

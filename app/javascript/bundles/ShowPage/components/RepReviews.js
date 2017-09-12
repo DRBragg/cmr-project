@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Grid } from 'react-bootstrap';
 import RepReview from './RepReview';
 import ReviewComments from './ReviewComments';
-
+import CommentForm from './commentForm';
 
 
 const RepReviews = (props) => {
@@ -10,7 +10,10 @@ const RepReviews = (props) => {
     let reviewID = review.id
     return(
       <Grid key={review.id}>
-        <RepReview review={review} />
+        <RepReview
+          review={review}
+          user={props.user}
+         />
         <ReviewComments comments={props.comments[reviewID]}/>
       </Grid>
     )

@@ -22,6 +22,7 @@ class RepresentativesController < ApplicationController
     @reviews.each do |review|
       @comments[review.id] = review.comments
     end
+    @user = user_signed_in?
   end
 
   def new
