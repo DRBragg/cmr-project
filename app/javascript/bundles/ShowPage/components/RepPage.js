@@ -8,7 +8,7 @@ import RepReviews from './RepReviews';
 const RepPage = (props) => {
   return(
     <Grid>
-      <PageTitle title={props.rep.name} />
+      <PageTitle title={props.rep.first_name + " " + props.rep.last_name} />
       <RepData rep={props.rep}/>
       <RepReviews reviews={props.reviews} comments={props.comments}/>
     </Grid>

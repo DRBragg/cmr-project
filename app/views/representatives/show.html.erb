@@ -48,4 +48,4 @@ Reviewed by: <%= review.user.first_name %>
 
 </ul>
 <% end %> -->
-<%= react_component("RepPage", props: { rep: @representative, reviews: @reviews, comments: @comments}, prerender: false) %>
+<%= react_component("RepPage", props: { rep: @representative, reviews: @reviews, comments: @comments}, prerender: true) %>
