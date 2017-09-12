@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <%= javascript_pack_tag 'main' %>
 <h1><%= @representative.first_name %> <%= @representative.last_name %></h1>
+=======
+<!-- <h1><%= @representative.first_name %> <%= @representative.last_name %></h1>
+>>>>>>> react_components
 <ul>
   <img src="<%= @representative.picture_url %>">
   <p><%= @representative.office %></p>
@@ -49,4 +53,5 @@ Reviewed by: <%= review.user.first_name %>
   <p><%= link_to "Comment on this blast", new_representative_review_comment_path(@representative, review) %></p>
 
 </ul>
-<% end %>
+<% end %> -->
+<%= react_component("RepPage", props: { rep: @representative, reviews: @reviews, comments: @comments}, prerender: false) %>
