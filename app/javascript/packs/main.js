@@ -4,14 +4,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-<<<<<<< HEAD:app/javascript/packs/main.js
 import PropTypes from 'prop-types'
 import Application from './application'
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Application/>,
-=======
 import RepPage from '../components/RepPage'
 import IndexPage from '../components/IndexPage'
 
@@ -116,7 +110,6 @@ let review = {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <IndexPage data={data}/>,
->>>>>>> react_components:app/javascript/packs/hello_react.js
     document.body.appendChild(document.createElement('div')),
   )
 })

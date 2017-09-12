@@ -46,9 +46,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'hypernova'
-  gem 'rails_rest_vote'
-
   gem 'faker'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'poltergeist'
