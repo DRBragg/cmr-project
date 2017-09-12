@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '3.8.0'
+gem 'simplecov', require: false
 
 #add webpack support for react
 gem 'webpacker'
