@@ -54,6 +54,6 @@ feature "User adds new representative", js: true, server_rendering: true do
 
       click_button "Add Representative"
 
-      expect(page).to have_content("Phone number can't be blank, Phone number is invalid, First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Bio is too short (minimum is 10 characters), Picture url can't be blank, Email is invalid Put a new Representative on blast! First Name can't be blank Last Name can't be blank Email is invalid Office can't be blank Elected Party Affiliation Representative Bio can't be blank, is too short (minimum is 10 characters) Phone Number can't be blank, is invalid Representative Picture Link can't be blank")
+      expect(page).to have_content("Phone number can't be blank, Phone number is invalid, First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Bio is too short (minimum is 10 characters), Picture url can't be blank, Email is invalid")
     end
 end

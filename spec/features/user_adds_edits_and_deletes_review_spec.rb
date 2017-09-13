@@ -33,7 +33,6 @@ feature "User does stuff with reviews", js: true do
     fill_in "Headline", with: "This is a headline"
     fill_in "Review", with: "I have written a review"
     select "3", :from => "Rating"
-    click_on "Submit"
 
     expect(page).to have_button("Submit", disabled: false)
   end
