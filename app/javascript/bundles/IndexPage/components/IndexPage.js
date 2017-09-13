@@ -6,7 +6,6 @@ import PageTitle from './PageTitle';
 
 class IndexPage extends React.Component {
   render() {
-    console.log("IndexPage");
     return(
       <Grid>
         <PageTitle title={this.props.title} />
