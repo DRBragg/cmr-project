@@ -1,6 +1,6 @@
 <h1>Blast your Rep!</h1>
 
-<%= form_for [@representative, @review] html: { method: :put } do |f| %>
+<%= form_for [@representative, @review] do |f| %>
   <%= f.label :headline %>
   <%= f.text_field :headline %><br />
   <%= f.label :body %>

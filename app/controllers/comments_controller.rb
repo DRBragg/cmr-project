@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
 
   def create
     @user = current_user
-    require 'pry'
-    binding.pry
     @review = Review.find(params[:review_id])
     @comment = Comment.create(comment_params)
     @comment.review = @review
