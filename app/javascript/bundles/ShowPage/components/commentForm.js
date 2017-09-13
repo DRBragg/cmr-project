@@ -14,13 +14,13 @@ class CommentForm extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/auth/is_signed_in.json')
-      .then(response => {
-        let signedIn = response.json()
-        console.log(signedIn);
-    }).then(newComment => {
-      console.log(newComment);
-    })
+    // fetch('/auth/is_signed_in.json')
+    //   .then(response => {
+    //     let signedIn = response.json()
+    //     console.log(signedIn);
+    // }).then(newComment => {
+    //   console.log(newComment);
+    // })
   }
 
   getValidationState(){
@@ -38,8 +38,8 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
-    let formPayload = {comment: {body: this.state.value}}
-    fetch('/reviews/'+this.props.reviewId+'/comments.json', {
+    let formPayload = {comment: {body: this.state.value, review_id: this.props.reviewId, user_id: this.props.userId}}
+    fetch('/api/v1/representatives/'+this.props.repId+'/reviews/'+this.props.reviewId+'/comments', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',
@@ -48,10 +48,16 @@ class CommentForm extends React.Component {
       let newComment = response.json()
       return newComment
     }).then(newComment => {
-      console.log(newComment);
+      this.props.newComment(newComment, this.props.reviewId)
+      this.clearForm()
     })
     // let jsonComment = await(await fetch('/reviews/'+this.props.reviewId+'/comments', { method: 'POST', credentials: 'same-origin', body: formPayload})).json();
   }
+
+  clearForm(){
+    this.setState({value: ''})
+  }
+
 
   render() {
     let disabled;

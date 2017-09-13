@@ -18,14 +18,14 @@ class RepPage extends React.Component {
   }
 
   handleNewReview(data) {
-    let allReviews = this.state.reviews
+    let allReviews = this.state.reviews ? this.state.reviews : []
     let updatedReviews = allReviews.concat([data])
     this.setState({reviews: updatedReviews})
   }
 
   handleNewComment(data, id) {
     let allComments = this.state.comments
-    allComments[id].concat([data])
+    allComments[id] = allComments[id] ? allComments[id].concat([data]) : [data]
     this.setState({comments: allComments})
   }
 
@@ -33,8 +33,8 @@ class RepPage extends React.Component {
     return(
       <Grid>
         <PageTitle title={this.state.rep.first_name + " " + this.state.rep.last_name} />
-        <RepData rep={this.state.rep} newReview={this.handleNewReview} />
-        <RepReviews newComment={this.handleNewComment} reviews={this.state.reviews} comments={this.state.comments} user={this.props.user}/>
+        <RepData userId={this.props.userId} rep={this.state.rep} newReview={this.handleNewReview} />
+        <RepReviews newComment={this.handleNewComment} reviews={this.state.reviews} comments={this.state.comments} user={this.props.user} userId={this.props.userId} repId={this.state.rep.id}/>
       </Grid>
     )
   }

@@ -43,14 +43,15 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let formPayload = { review: {
+    let formPayload = {
       headline: this.state.headline,
       body: this.state.body,
-      rating: parseInt(this.state.rating)
-      }
+      rating: parseInt(this.state.rating),
+      representative_id: this.props.repId,
+      user_id: this.props.userId
     };
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
-    fetch('/representatives/'+this.props.repId+'/reviews.json', {
+    fetch('/api/v1/representatives/'+this.props.repId+'/reviews', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',
@@ -60,7 +61,12 @@ class ReviewForm extends React.Component {
       return newReview
     }).then(newReview => {
       this.props.newReview(newReview);
+      this.clearForm()
     })
+  }
+
+  clearForm(){
+    this.setState({headline: "", body: "", rating: ""})
   }
 
   render() {
@@ -99,12 +105,12 @@ class ReviewForm extends React.Component {
             <FormControl
               componentClass="textarea"
               name='body'
-              value={this.state.value}
+              value={this.state.body}
               placeholder="Write your review here"
               onChange={this.handleChange}
             />
             <FormControl.Feedback />
-            <HelpBlock>Comment must be between 10 - 255 characters.</HelpBlock>
+            <HelpBlock>Review must be between 10 - 255 characters.</HelpBlock>
           </FormGroup>
 
           <FormGroup

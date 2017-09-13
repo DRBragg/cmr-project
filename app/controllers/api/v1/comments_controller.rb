@@ -5,12 +5,13 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new
-    @comment.assign_attributes(@json['comment'])
-    if @comment.save
-      render json: @comment
+    data = JSON.parse(request.body.read)
+    comment = Comment.new
+    comment.assign_attributes(body: data["comment"]["body"], review: Review.find(data["comment"]["review_id"]), user: User.find(data["comment"]["user_id"]))
+    if comment.save
+      render json: comment
     else
-      render nothing: true, status: :bad_request
+      render status: :unprocessable_entity
     end
   end
 end

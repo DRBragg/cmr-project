@@ -23,6 +23,7 @@ class RepresentativesController < ApplicationController
       @comments[review.id] = review.comments
     end
     @user = user_signed_in?
+    @user_id = current_user.id
   end
 
   def new
