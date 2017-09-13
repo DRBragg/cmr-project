@@ -1,5 +1,6 @@
 {
   "name": "on-blast",
+  "engines" : { "node" : ">=4" },
   "private": true,
   "scripts": {
     "start": "./bin/webpack-dev-server"
