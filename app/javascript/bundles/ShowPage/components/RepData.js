@@ -8,7 +8,7 @@ const RepData = (props) => {
   return(
     <Row>
       <RepImage url={props.rep.picture_url}/>
-      <RepInfo rep={props.rep}/>
+      <RepInfo rep={props.rep} newReview={props.newReview}/>
     </Row>
   )
 }

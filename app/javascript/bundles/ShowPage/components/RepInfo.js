@@ -20,6 +20,7 @@ const RepInfo = (props) => {
         <Panel collapsible header ="Review this Representative" eventKey="3">
           <ReviewForm
             repId={props.rep.id}
+            newReview={props.newReview}
           />
         </Panel>
       </PanelGroup>

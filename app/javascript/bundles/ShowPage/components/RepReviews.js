@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Grid } from 'react-bootstrap';
 import RepReview from './RepReview';
 import ReviewComments from './ReviewComments';
-import CommentForm from './commentForm';
 
 
 const RepReviews = (props) => {

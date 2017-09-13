@@ -1,5 +1,6 @@
 import React from 'react';
 import {FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
+import ReactOnRails from 'react-on-rails';
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,16 @@ class CommentForm extends React.Component {
     this.getValidationState = this.getValidationState.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    fetch('/auth/is_signed_in.json')
+      .then(response => {
+        let signedIn = response.json()
+        console.log(signedIn);
+    }).then(newComment => {
+      console.log(newComment);
+    })
   }
 
   getValidationState(){
@@ -26,9 +37,20 @@ class CommentForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault()
-    let formPayload = {body: this.state.value}
-    formPayload.review_id = this.props.reviewId
-    console.log(formPayload)
+    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
+    let formPayload = {comment: {body: this.state.value}}
+    fetch('/reviews/'+this.props.reviewId+'/comments.json', {
+      method: 'POST',
+      headers: header,
+      credentials: 'same-origin',
+      body: JSON.stringify(formPayload)
+    }).then(response => {
+      let newComment = response.json()
+      return newComment
+    }).then(newComment => {
+      console.log(newComment);
+    })
+    // let jsonComment = await(await fetch('/reviews/'+this.props.reviewId+'/comments', { method: 'POST', credentials: 'same-origin', body: formPayload})).json();
   }
 
   render() {
