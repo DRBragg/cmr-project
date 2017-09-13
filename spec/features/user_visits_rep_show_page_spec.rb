@@ -42,9 +42,6 @@ feature "User visits a representative's show page", js: true, server_rendering: 
 
     expect(page).to have_content(comment1.body)
 
-    # expect(page).to have_content("Edit Comment")
-    # expect(page).to have_button("Delete Comment")
-    # expect(page).to have_content("Blast this rep")
-    # expect(page).to have_content("Comment on this blast")
+    expect(page).to have_button("Edit Review")
   end
 end

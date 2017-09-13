@@ -51,7 +51,7 @@ class ReviewForm extends React.Component {
       user_id: this.props.userId
     };
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
-    fetch('/api/v1/representatives/'+this.props.repId+'/reviews', {
+    fetch('/api/v1'+window.location.pathname+'/reviews', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',

@@ -13,16 +13,6 @@ class CommentForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    // fetch('/auth/is_signed_in.json')
-    //   .then(response => {
-    //     let signedIn = response.json()
-    //     console.log(signedIn);
-    // }).then(newComment => {
-    //   console.log(newComment);
-    // })
-  }
-
   getValidationState(){
     const length = this.state.value.length;
     if (length > 10 && length != 0 ) return 'success';
@@ -51,7 +41,6 @@ class CommentForm extends React.Component {
       this.props.newComment(newComment, this.props.reviewId)
       this.clearForm()
     })
-    // let jsonComment = await(await fetch('/reviews/'+this.props.reviewId+'/comments', { method: 'POST', credentials: 'same-origin', body: formPayload})).json();
   }
 
   clearForm(){
