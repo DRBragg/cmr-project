@@ -21,6 +21,7 @@ const RepInfo = (props) => {
           <ReviewForm
             repId={props.rep.id}
             newReview={props.newReview}
+            userId={props.userId}
           />
         </Panel>
       </PanelGroup>

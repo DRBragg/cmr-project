@@ -11,10 +11,9 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
-<<<<<<< HEAD
+
 gem 'foreman'
-=======
->>>>>>> master
+
 gem 'mini_magick', '3.8.0'
 
 #add webpack support for react
@@ -59,12 +58,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-<<<<<<< HEAD
-=======
+
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'mailcatcher'
->>>>>>> master
+
 end
 
 group :production do

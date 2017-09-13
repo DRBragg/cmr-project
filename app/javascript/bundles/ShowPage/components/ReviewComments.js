@@ -4,7 +4,7 @@ import ReviewComment from './ReviewComment';
 
 
 const ReviewComments = (props) => {
-  if (props.comments != undefined) {
+  if (props.comments != null) {
     let reviewComments = props.comments.map(comment => {
       return(
         <ReviewComment key={comment.id} comment={comment} />

@@ -12,7 +12,9 @@ const RepReview = (props) => {
   const foot = (
     <Vote
     reviewId={props.review.id}
-    user={props.user}
+    userId={props.userId}
+    newComment={props.newComment}
+    repId={props.repId}
     />
   );
   return(
