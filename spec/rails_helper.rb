@@ -68,7 +68,8 @@ RSpec.configure do |config|
       window_size: [1300, 1800],
       screen_size: [1400, 1900],
       phantomjs_options: ["--load-images=no", "--ignore-ssl-errors=true"],
-      timeout: 180
+      timeout: 180,
+      js_errors: false
     }
 
     Capybara.register_driver :poltergeist do |app|

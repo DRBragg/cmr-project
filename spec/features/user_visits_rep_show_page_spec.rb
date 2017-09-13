@@ -41,7 +41,5 @@ feature "User visits a representative's show page", js: true, server_rendering: 
     expect(page).to have_content(review1.rating)
 
     expect(page).to have_content(comment1.body)
-
-    expect(page).to have_button("Edit Review")
   end
 end
