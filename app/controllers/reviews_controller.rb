@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     @review.user = @user
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_now
       redirect_to @representative, notice: "Review added successfully"
     else
       flash[:alert] = @review.errors.full_messages.join(' , ')
