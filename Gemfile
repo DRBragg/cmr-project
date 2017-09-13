@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '3.8.0'
+gem 'fog'
+gem "fog-aws"
 
 #add webpack support for react
 gem 'webpacker'
@@ -40,7 +42,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'fog'
+
   gem 'faker'
   gem 'phantomjs'
   gem 'poltergeist'
