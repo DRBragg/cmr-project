@@ -29,6 +29,15 @@ class CommentForm extends React.Component {
     let formPayload = {body: this.state.value}
     formPayload.review_id = this.props.reviewId
     console.log(formPayload)
+    fetch(`/api/v1/representatives/${this.props.repId}`, {
+      method: 'POST',
+      body: JSON.stringify()
+    })
+    .then(response => response.json())
+    .then(body => {
+      let  = this.state..concat()
+      this.setState({ :  })
+    })
   }
 
   render() {
