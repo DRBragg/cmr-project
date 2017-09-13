@@ -110,7 +110,7 @@ class ReviewForm extends React.Component {
               onChange={this.handleChange}
             />
             <FormControl.Feedback />
-            <HelpBlock>Comment must be between 10 - 255 characters.</HelpBlock>
+            <HelpBlock>Review must be between 10 - 255 characters.</HelpBlock>
           </FormGroup>
 
           <FormGroup

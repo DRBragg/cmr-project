@@ -14,4 +14,14 @@ class Api::V1::ReviewsController < ApplicationController
       render status: :unprocessable_entity
     end
   end
+
+  def create
+    @review = Review.new
+    @review.assign_attributes(@json['review'])
+    if @review.save
+      render json: @review
+    else
+      render nothing: true, status: :bad_request
+    end
+  end
 end
