@@ -39,6 +39,9 @@ group :test do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
+  gem 'fog'
+  gem "fog-aws"
   gem 'faker'
   gem 'phantomjs'
   gem 'poltergeist'
