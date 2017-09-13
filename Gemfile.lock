@@ -502,7 +502,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fog
-  fog-aws
   inky-rb
   jquery-rails
   launchy
