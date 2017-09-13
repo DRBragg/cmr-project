@@ -49,9 +49,15 @@ class CommentForm extends React.Component {
       return newComment
     }).then(newComment => {
       this.props.newComment(newComment, this.props.reviewId)
+      this.clearForm()
     })
     // let jsonComment = await(await fetch('/reviews/'+this.props.reviewId+'/comments', { method: 'POST', credentials: 'same-origin', body: formPayload})).json();
   }
+
+  clearForm(){
+    this.setState({value: ''})
+  }
+
 
   render() {
     let disabled;

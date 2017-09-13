@@ -61,7 +61,12 @@ class ReviewForm extends React.Component {
       return newReview
     }).then(newReview => {
       this.props.newReview(newReview);
+      this.clearForm()
     })
+  }
+
+  clearForm(){
+    this.setState({headline: "", body: "", rating: ""})
   }
 
   render() {
@@ -100,7 +105,7 @@ class ReviewForm extends React.Component {
             <FormControl
               componentClass="textarea"
               name='body'
-              value={this.state.value}
+              value={this.state.body}
               placeholder="Write your review here"
               onChange={this.handleChange}
             />
