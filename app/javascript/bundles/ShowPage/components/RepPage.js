@@ -9,7 +9,7 @@ const RepPage = (props) => {
   return(
     <Grid>
       <PageTitle title={props.rep.first_name + " " + props.rep.last_name} />
-      <RepData rep={props.rep}, userId={props.user.id}/>
+      <RepData rep={props.rep} userId={props.user.id}/>
       <RepReviews reviews={props.reviews} comments={props.comments} user={props.user}/>
     </Grid>
   )

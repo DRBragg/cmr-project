@@ -35,7 +35,7 @@ class Vote extends React.Component {
           </ButtonToolbar>
         </Col>
         <Col xs={4}>
-          {this.state.clicked && <CommentForm reviewId={this.props.reviewId}, userId={this.props.userId}/>}
+          {this.state.clicked && <CommentForm reviewId={this.props.reviewId} userId={this.props.userId} />}
         </Col>
       </Row>
     )
