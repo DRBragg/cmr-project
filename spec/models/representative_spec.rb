@@ -16,7 +16,6 @@ RSpec.describe Representative, type: :model do
   it { should have_valid(:party).when('Democrat', 'Republican', nil) }
 
   it { should have_valid(:bio).when('Info about the Representative', 'Trying to take over the world') }
-  it { should_not have_valid(:bio).when('', nil, "Need ten!", "255 max" * 37) }
 
   it { should have_valid(:elected).when(Date.parse('03/01/2015')) }
   it { should_not have_valid(:elected).when('', nil) }
