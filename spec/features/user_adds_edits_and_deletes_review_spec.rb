@@ -35,6 +35,7 @@ feature "User does stuff with reviews", js: true, server_rendering: true do
     fill_in "user_password", with: user1.password
     click_button "Sign In"
 
+<<<<<<< HEAD
     click_on "View Rep"
     page.find('a', :text => 'Review this Representative').click
 
@@ -46,6 +47,11 @@ feature "User does stuff with reviews", js: true, server_rendering: true do
     # expect(page).to have_content("Review added successfully")
     # expect(page).to have_content("This dude totally sucks ass")
 
+=======
+    expect(page).to have_content("Review added successfully")
+    expect(page).to have_content("This dude totally sucks ass")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
+>>>>>>> master
   end
 
   scenario "User add review unsuccessful" do

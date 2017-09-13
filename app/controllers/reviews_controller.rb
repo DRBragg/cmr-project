@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @representative, notice: "Review added successfully" }
       else
         format.json { render json: @review.errors.full_messages.join(' , ') }
-        format.html { render :new, flash[:alert] = @review.errors.full_messages.join(' , ') }    
+        format.html { render :new, flash[:alert] = @review.errors.full_messages.join(' , ') }
       end
     end
   end
