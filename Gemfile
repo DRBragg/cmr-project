@@ -14,6 +14,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '3.8.0'
 gem 'fog'
 gem "fog-aws"
+gem 'sendgrid-ruby'
 
 #add webpack support for react
 gem 'webpacker'
