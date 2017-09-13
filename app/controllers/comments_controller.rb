@@ -8,15 +8,16 @@ class CommentsController < ApplicationController
 
   def create
     @user = current_user
+    require 'pry'
+    binding.pry
     @review = Review.find(params[:review_id])
-    @representative = Representative.find_by(params[:representative_id])
     @comment = Comment.create(comment_params)
     @comment.review = @review
     @comment.user = @user
 
     if @comment.save
       CommentMailer.new_comment(@comment).deliver_now
-      redirect_to @representative, notice: "Comment added successfully"
+      redirect_to representative_path(@review.representative_id), notice: "Comment added successfully"
     else
       flash[:alert] = @comment.errors.full_messages.join(' , ')
       render :new
