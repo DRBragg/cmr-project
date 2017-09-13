@@ -1,4 +1,3 @@
-
 Representative.create(
 first_name: "Bernie",
 last_name: "Sanders",

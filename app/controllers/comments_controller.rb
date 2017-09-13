@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        # CommentMailer.new_comment(@comment).deliver_now
+        CommentMailer.new_comment(@comment).deliver_now
         format.json { render json: @comment }
         format.html { redirect_to @representative, notice: "Comment added successfully" }
       else
