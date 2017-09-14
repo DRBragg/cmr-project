@@ -6,9 +6,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server",
-    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-    "heroku-postbuild": "npm run webpack:deploy"
+    "start": "./bin/webpack-dev-server"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
