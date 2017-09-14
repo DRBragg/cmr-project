@@ -6,7 +6,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server"
+    "start": "./bin/webpack-dev-server",
+    "postinstall": "yarn install"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
@@ -29,7 +30,6 @@
     "webpack-dev-server": "^2.8.2"
   },
   "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
+    "node_modules"
   ]
 }
