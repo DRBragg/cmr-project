@@ -1,11 +1,15 @@
 class RepresentativesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @user = current_user
     @representatives = Representative.all
+
     if params[:search]
       @representatives = Representative.search(params[:search]).order("created_at DESC")
+      if @representatives.empty?
+        flash[:warning] = "There are no representatives matching your search"
+      end
     else
       @representatives = Representative.all.order("created_at DESC")
     end
@@ -18,6 +22,12 @@ class RepresentativesController < ApplicationController
     @reviews.each do |review|
       @comments[review.id] = review.comments
     end
+    @user = user_signed_in?
+    @user_id = 0
+    if user_signed_in?
+      @user_id = current_user.id
+    end
+
   end
 
   def new

@@ -10,3 +10,5 @@
 
   <%= f.submit "Update Review" %>
 <% end %>
+
+<%= button_to "Delete Review", {action: "destroy", representative_id: @representative.id, review_id: @review.id}, method: :delete%>

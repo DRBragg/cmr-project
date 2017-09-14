@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User visits a representative's show page" do
+feature "User visits a representative's show page", js: true, server_rendering: true do
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:representative1) {FactoryGirl.create(:representative, user: user1)}
   let!(:review1) {FactoryGirl.create(:review, representative: representative1, user: user1)}
@@ -8,7 +8,7 @@ feature "User visits a representative's show page" do
 
   scenario "User is not signed in" do
     visit root_path
-    click_link representative1.name
+    click_on "View Rep"
 
     expect(page).to_not have_content("Edit Comment")
     expect(page).to_not have_button("Delete Comment")
@@ -21,7 +21,10 @@ feature "User visits a representative's show page" do
     fill_in "Email", with: user1.email
     fill_in "user_password", with: user1.password
     click_button "Sign In"
-    click_link representative1.name
+    click_on "View Rep"
+
+    page.find('a', :text => 'Biography').click
+    page.find('a', :text => 'Contact').click
 
     expect(page).to have_content(representative1.first_name)
     expect(page).to have_content(representative1.last_name)
@@ -38,10 +41,5 @@ feature "User visits a representative's show page" do
     expect(page).to have_content(review1.rating)
 
     expect(page).to have_content(comment1.body)
-
-    expect(page).to have_content("Edit Comment")
-    expect(page).to have_button("Delete Comment")
-    expect(page).to have_content("Blast this rep")
-    expect(page).to have_content("Comment on this blast")
   end
 end

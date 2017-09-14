@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def show
   end
 
@@ -16,12 +16,14 @@ class ReviewsController < ApplicationController
     @review.representative = @representative
     @review.user = @user
 
-    if @review.save
-      ReviewMailer.new_review(@review).deliver_now
-      redirect_to @representative, notice: "Review added successfully"
-    else
-      flash[:alert] = @review.errors.full_messages.join(' , ')
-      render :new
+    respond_to do |format|
+      if @review.save
+        format.json { render json: @review }
+        format.html { redirect_to @representative, notice: "Review added successfully" }
+      else
+        format.json { render json: @review.errors.full_messages.join(' , ') }
+        format.html { render :new, flash[:alert] = @review.errors.full_messages.join(' , ') }
+      end
     end
   end
 

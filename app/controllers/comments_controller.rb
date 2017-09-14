@@ -1,5 +1,14 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+
+  def index
+    @comments = Comment.all
+
+    respond_to do |format|
+      format.json { render json: @comments }
+    end
+  end
+
   def new
     @user = current_user
     @review = Review.find(params[:review_id])
@@ -9,16 +18,21 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     @review = Review.find(params[:review_id])
+    if params[:representative_id] { @representative = Representative.find_by(params[:representative_id]) }
     @comment = Comment.create(comment_params)
     @comment.review = @review
     @comment.user = @user
 
-    if @comment.save
-      CommentMailer.new_comment(@comment).deliver_now
-      redirect_to representative_path(@review.representative_id), notice: "Comment added successfully"
-    else
-      flash[:alert] = @comment.errors.full_messages.join(' , ')
-      render :new
+    respond_to do |format|
+      if @comment.save
+        CommentMailer.new_comment(@comment).deliver_now
+        format.json { render json: @comment }
+        format.html { redirect_to @representative, notice: "Comment added successfully" }
+      else
+        format.json { render json: "Error Saving Comment"}
+        flash[:alert] = @comment.errors.full_messages.join(' , ')
+        format.html { render :new }
+      end
     end
   end
 
