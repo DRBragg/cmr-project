@@ -48,7 +48,6 @@ test:
 
 production:
   <<: *default
-"heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 
