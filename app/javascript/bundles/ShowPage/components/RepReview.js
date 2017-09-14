@@ -11,6 +11,7 @@ const RepReview = (props) => {
 
   const foot = (
     <Vote
+    score={props.review.score}
     reviewId={props.review.id}
     userId={props.userId}
     newComment={props.newComment}
