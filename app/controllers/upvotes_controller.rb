@@ -10,13 +10,14 @@ class UpvotesController < ApplicationController
       if @upvote.save
         @downvoted = Downvote.find_by(user: @user, review: @review)
         if !@downvoted.nil?
+          @review.score += 2
           @downvoted.destroy
         end
+        @review.score += 1
+        render json: upvote
         flash[:success] = "Upvoted!"
-        redirect_back(fallback_location: root_path)
       else
         flash[:danger] = "You've already upvoted"
-        redirect_back(fallback_location: root_path)
       end
     end
   end

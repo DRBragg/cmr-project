@@ -48,7 +48,6 @@ test:
 
 production:
   <<: *default
-
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 

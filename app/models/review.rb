@@ -13,6 +13,8 @@ class Review < ApplicationRecord
   validates :representative_id, presence: true
   validates :user_id, presence: true
 
+
+
   def votes
     self.upvotes.length - self.downvotes.length
   end
