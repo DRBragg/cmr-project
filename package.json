@@ -1,9 +1,15 @@
 {
   "name": "on-blast",
-  "engines" : { "node" : ">=4" },
+  "version": "0.1.0",
+  "engines": {
+    "node": "7.8.0",
+    "npm": "4.4.4",
+    "yarn": "0.22.0"
+  },
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server"
+    "start": "./bin/webpack-dev-server",
+    "postinstall": "cd client && npm install"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
@@ -24,5 +30,9 @@
     "enzyme": "^2.9.1",
     "jasmine-enzyme": "^3.8.2",
     "webpack-dev-server": "^2.7.1"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ]
 }
