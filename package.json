@@ -6,8 +6,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server",
-    "postinstall": "yarn install"
+    "start": "./bin/webpack-dev-server"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
