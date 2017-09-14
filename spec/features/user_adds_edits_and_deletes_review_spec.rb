@@ -35,6 +35,7 @@ feature "User does stuff with reviews", js: true do
     select "3", :from => "Rating"
 
     expect(page).to have_button("Submit", disabled: false)
+
   end
 
   scenario "User add review unsuccessful" do
