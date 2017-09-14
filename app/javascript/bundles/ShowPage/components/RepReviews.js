@@ -14,6 +14,7 @@ const RepReviews = (props) => {
             review={review}
             user={props.user}
             userId={props.userId}
+            current_user={props.current_user}
             newComment={props.newComment}
             repId={props.repId}
            />

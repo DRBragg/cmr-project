@@ -86,10 +86,7 @@ class Vote extends React.Component {
             <CommentPost
               onClick = {this.handleClick}
             />
-            {this.props.user && <Button>
-              Edit Review
-            </Button>
-          }
+              <Button bsStyle="primary" href={"/representatives/"+this.props.repId+"/reviews/"+this.props.reviewId+"/edit"}>Edit Review</Button>
           </ButtonToolbar>
         </Col>
         <Col xs={4}>
