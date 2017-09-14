@@ -2,11 +2,13 @@
   "name": "on-blast",
   "engines" : {
     "node" : ">=4",
-    "yarn" : ">0.25" 
+    "yarn" : ">0.25"
   },
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server"
+    "start": "./bin/webpack-dev-server",
+    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+    "heroku-postbuild": "npm run webpack:deploy"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
