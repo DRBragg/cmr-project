@@ -2,7 +2,7 @@
   "name": "on-blast",
   "engines" : {
     "node" : ">=4",
-    "yarn" : ">=0.25" 
+    "yarn" : ">0.25"
   },
   "private": true,
   "scripts": {
