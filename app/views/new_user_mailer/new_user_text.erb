@@ -1,0 +1,15 @@
+Hey <%= @user.first_name %>,
+
+Welcome to the On Blast community! We have so many ways for you to be involved in holding our representatives up to greater scrutiny.
+
+<% if user_signed_in? %>
+<%= link_to "Add a Representative!", new_representative_path %>
+<% end %>
+
+<%= link_to "Review a Representative!", new_representative_review_path(@representative) %>
+
+Upvote/Downvote someone's review!
+
+Comment on someone's review!
+
+Peace!
