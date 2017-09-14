@@ -1,4 +1,3 @@
-#allows coveralls to use rspec and run our rspec tests
 require 'valid_attribute'
 
 require 'coveralls'
