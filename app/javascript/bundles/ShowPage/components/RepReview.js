@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Panel } from 'react-bootstrap';
 import Vote from './Vote';
-
+import CommentPost from './commentPost';
 
 
 const RepReview = (props) => {
@@ -10,7 +10,12 @@ const RepReview = (props) => {
   );
 
   const foot = (
-    <Vote />
+    <Vote
+    reviewId={props.review.id}
+    userId={props.userId}
+    newComment={props.newComment}
+    repId={props.repId}
+    />
   );
   return(
     <Row>

@@ -1,27 +1,12 @@
 #allows coveralls to use rspec and run our rspec tests
-<<<<<<< HEAD
-require 'valid_attribute'
 =======
+require 'valid_attribute'
+
 require 'coveralls'
 Coveralls.wear!('rails')
-require 'database_cleaner'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'email_spec'
-
-require 'capybara/poltergeist'
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, {
-    js_errors: false,
-    phantomjs_options: ['--ignore-ssl-errors=yes', '--ssl-protocol=any'],
-    debug: false,
-    timeout: 500,
-    phantomjs: File.absolute_path(Phantomjs.path)
-  })
-end
-Capybara.javascript_driver = :poltergeist
-Capybara.server_port = 3001
->>>>>>> master
 
 RSpec.configure do |config|
 

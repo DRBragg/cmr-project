@@ -50,7 +50,7 @@ RSpec.configure do |config|
   # Using errors_ok as there is a timing issue causing crashes without this setting
   # https://github.com/teampoltergeist/poltergeist/issues/830
 
-  default_driver = :poltergeist_no_animations
+  default_driver = :selenium_chrome
 
   supported_drivers = %i[ poltergeist poltergeist_errors_ok
                           poltergeist_no_animations
@@ -68,7 +68,8 @@ RSpec.configure do |config|
       window_size: [1300, 1800],
       screen_size: [1400, 1900],
       phantomjs_options: ["--load-images=no", "--ignore-ssl-errors=true"],
-      timeout: 180
+      timeout: 180,
+      js_errors: false
     }
 
     Capybara.register_driver :poltergeist do |app|

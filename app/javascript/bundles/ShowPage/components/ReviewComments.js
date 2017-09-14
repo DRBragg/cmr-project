@@ -4,17 +4,24 @@ import ReviewComment from './ReviewComment';
 
 
 const ReviewComments = (props) => {
-  let reviewComments = props.comments.map(comment => {
-    return(
-      <ReviewComment key={comment.id} comment={comment} />
-    )
-  })
+  if (props.comments != null) {
+    let reviewComments = props.comments.map(comment => {
+      return(
+        <ReviewComment key={comment.id} comment={comment} />
+      )
+    })
 
-  return(
-    <Row>
-      {reviewComments}
-    </Row>
-  )
+    return(
+      <Row>
+        {reviewComments}
+      </Row>
+    )
+  } else {
+    return(
+      <Row>
+      </Row>
+    )
+  }
 }
 
 export default ReviewComments;

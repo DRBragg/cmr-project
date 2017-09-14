@@ -4,23 +4,35 @@ import RepReview from './RepReview';
 import ReviewComments from './ReviewComments';
 
 
-
 const RepReviews = (props) => {
-  let repReviews = props.reviews.map(review => {
-    let reviewID = review.id
-    return(
-      <Grid key={review.id}>
-        <RepReview review={review} />
-        <ReviewComments comments={props.comments[reviewID]}/>
-      </Grid>
-    )
-  })
+  if (props.reviews != null) {
+    let repReviews = props.reviews.map(review => {
+      let reviewID = review.id
+      return(
+        <Grid key={review.id}>
+          <RepReview
+            review={review}
+            user={props.user}
+            userId={props.userId}
+            newComment={props.newComment}
+            repId={props.repId}
+           />
+          <ReviewComments comments={props.comments[reviewID]}/>
+        </Grid>
+      )
+    })
 
-  return(
-    <Row>
-      {repReviews}
-    </Row>
-  )
+    return(
+      <Row>
+        {repReviews}
+      </Row>
+    )
+  } else {
+    return(
+      <Row>
+      </Row>
+    )
+  }
 }
 
 export default RepReviews
