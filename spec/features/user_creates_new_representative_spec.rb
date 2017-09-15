@@ -5,11 +5,6 @@ feature "User adds new representative", js: true, server_rendering: true do
 
   scenario "User visits create page" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "Add New Representative"
 
@@ -21,11 +16,6 @@ feature "User adds new representative", js: true, server_rendering: true do
     ActionMailer::Base.deliveries = []
 
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "Add New Representative"
 
@@ -44,11 +34,6 @@ feature "User adds new representative", js: true, server_rendering: true do
 
     scenario "Create is unsuccessful" do
       visit root_path
-      click_link "Sign In"
-
-      fill_in "Email", with: user1.email
-      fill_in "user_password", with: user1.password
-      click_button "Sign In"
 
       click_on "Add New Representative"
 

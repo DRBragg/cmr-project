@@ -5,6 +5,12 @@ import PageTitle from './PageTitle';
 
 
 class IndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
   render() {
     return(
       <Grid className="background">

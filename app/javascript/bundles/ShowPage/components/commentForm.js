@@ -6,7 +6,8 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ""
+      value: "",
+      userLogError: false
     }
     this.getValidationState = this.getValidationState.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -29,22 +30,30 @@ class CommentForm extends React.Component {
     e.preventDefault()
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
     let formPayload = {comment: {body: this.state.value, review_id: this.props.reviewId, user_id: this.props.userId}}
-    fetch('/api/v1/representatives/'+this.props.repId+'/reviews/'+this.props.reviewId+'/comments', {
+    fetch('/representatives/'+this.props.repId+'/reviews/'+this.props.reviewId+'/comments.json', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',
       body: JSON.stringify(formPayload)
     }).then(response => {
-      let newComment = response.json()
-      return newComment
+      if (response.status == 401) {
+        this.userNotSignedIn();
+      } else {
+        let newComment = response.json()
+        return newComment
+      }
     }).then(newComment => {
       this.props.newComment(newComment, this.props.reviewId)
       this.clearForm()
     })
   }
 
+  userNotSignedIn() {
+    this.setState({userLogError: true})
+  }
+
   clearForm(){
-    this.setState({value: ''})
+    this.setState({value: '', userLogError: false})
   }
 
 
@@ -75,6 +84,7 @@ class CommentForm extends React.Component {
         <Button type='submit' onClick = {this.handleSubmit} disabled={disabled}>
           Submit
         </Button>
+        {this.state.userLogError && <div className="alert alert-danger">You must be logged in to comment!</div>}
       </form>
     );
   }
