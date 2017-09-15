@@ -5,11 +5,11 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'index-page-bundle' %>
-
+<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Monofett" rel="stylesheet">
   </head>
   <body>
     <%= react_component("Navigation", props: { user: @user }, prerender: false) %>
-    
+
     <div class="container">
       <% if !flash.empty? %>
           <div class="row">
@@ -29,6 +29,6 @@
       </div>
 
       <%= yield %>
-      
+
   </body>
 </html>
