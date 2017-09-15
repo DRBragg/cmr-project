@@ -55,9 +55,7 @@ feature "User adds new representative", js: true, server_rendering: true do
       fill_in 'user_password', with: user1.password
       click_button "Sign In"
 
-      click_button "Add Representative"
-
-      click_on "Add New Representative"
+      click_on "Add Representative"
 
       expect(page).to have_content("Phone number can't be blank, Phone number is invalid, First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Bio is too short (minimum is 10 characters), Picture url can't be blank, Email is invalid")
     end
