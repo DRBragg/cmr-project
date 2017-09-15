@@ -8,7 +8,7 @@ const RepCard = (props) => {
       <Panel header={props.rep.first_name  + " " + props.rep.last_name}>
         <img src={props.rep.picture_url} alt={props.rep.last_name} className="img-circle card-image"/>
         <br />
-        <Button bsStyle="primary" href={"/representatives/" + props.rep.id}>View Rep</Button>
+        <Button bsStyle="warning" href={"/representatives/" + props.rep.id}>View Rep</Button>
       </Panel>
     </Col>
   )

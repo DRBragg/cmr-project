@@ -11,9 +11,9 @@ const CardsGroup = (props) => {
   })
 
   return(
-    <Row>
+    <div>
       {cards}
-    </Row>
+    </div>
   )
 }
 
