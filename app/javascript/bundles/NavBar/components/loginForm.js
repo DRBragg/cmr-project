@@ -78,7 +78,7 @@ class LoginForm extends React.Component {
           />
         </FormGroup>
         <Button type='submit' onClick = {this.handleSubmit} disabled={disabled}>
-          Submit
+          Sign In
         </Button>
         {this.state.userLogError && <div className="alert alert-danger">Incorrect Username/Password</div>}
       </form>

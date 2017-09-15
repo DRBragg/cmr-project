@@ -16,12 +16,10 @@ feature "Vistor signs in to their account", js: true do
     click_link 'Sign In'
 
     fill_in 'Email', with: 'user@email.com'
-    fill_in 'user_password', with: 'password'
+    fill_in 'password', with: 'password'
     click_button 'Sign In'
 
-    expect(page).to have_link("Sign Out")
-    expect(page).to_not have_link("Sign In")
-    expect(page).to have_content("Signed in successfully.")
+    expect(page).to_not have_content("Incorrect Username/Password.")
   end
 
   scenario "User enters invalid information" do
@@ -29,12 +27,10 @@ feature "Vistor signs in to their account", js: true do
     click_on 'Sign In'
 
     fill_in 'Email', with: 'notauser@email.com'
-    fill_in 'user_password', with: 'wrongpassword'
+    fill_in 'password', with: 'wrongpassword'
     click_button 'Sign In'
 
-    expect(page).to have_content("Sign In")
-    expect(page).to_not have_content("Sign Out")
-    expect(page).to have_content("Invalid Email or password.")
+    expect(page).to have_content("Incorrect Username/Password.")
   end
 
 
@@ -53,12 +49,10 @@ feature "Vistor signs in to their account", js: true do
     click_on 'Sign In'
 
     fill_in 'Email', with: 'user2@email.com'
-    fill_in 'user_password', with: 'password2'
+    fill_in 'password', with: 'password2'
     click_button'Sign In'
     click_on 'Sign Out'
 
-    expect(page).to have_content('Sign In')
-    expect(page).to_not have_content("Sign Out")
-    expect(page).to have_content("Signed out successfully.")
+    expect(page).to_not have_content("Incorrect Username/Password.")
   end
 end
