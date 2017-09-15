@@ -156,7 +156,7 @@ user_id: 1
 
 Representative.create(
 first_name: "Brian",
-last_name: "O\'neill",
+last_name: "O\'Neill",
 office: "Philadelphia City Council District 10 Representative and Republican Majority Leader",
 email: "council@phila.gov",
 party: "Republican",
