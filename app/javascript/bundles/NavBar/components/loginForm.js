@@ -31,27 +31,15 @@ class LoginForm extends React.Component {
       body: JSON.stringify(formPayload)
     }).then(response => {
       if (response.ok) {
-        this.getUserInfo()
+        this.props.signIn();
       } else {
-        this.setState({userLogError: true})
+        this.setState({userLogError: true});
       }
     })
   }
 
   clearForm(){
     this.setState({username: '', password: '', userLogError: false})
-  }
-
-  getUserInfo() {
-    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
-    fetch('/auth/is_signed_in', {
-      headers: header,
-      credentials: 'same-origin',
-    })
-      .then(response => {
-        console.log(response);
-      })
-
   }
 
   render() {

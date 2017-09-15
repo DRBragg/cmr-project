@@ -19,8 +19,8 @@ feature "Vistor signs in to their account", js: true do
     fill_in 'user_password', with: 'password'
     click_button 'Sign In'
 
-    expect(page).to have_button("Sign Out")
-    expect(page).to_not have_content("Sign In")
+    expect(page).to have_link("Sign Out")
+    expect(page).to_not have_link("Sign In")
     expect(page).to have_content("Signed in successfully.")
   end
 

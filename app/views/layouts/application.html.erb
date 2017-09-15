@@ -8,36 +8,8 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to 'On Blast', root_path, class: "navbar-brand" %>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li>
-              <%= button_to("Sign Out", destroy_user_session_path, method: :delete, class: "navbar-form btn btn-link") %>
-            </li>
-            <li>
-              <%= image_tag(current_user.avatar.url, size: "40x40", class:"img-circle") if current_user.avatar? %> <%= link_to current_user.first_name, edit_user_registration_path, class: "nav-link-right"%>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Sign Up", new_user_registration_path %>
-            </li>
-            <li>
-              <%= link_to "Sign In", new_user_session_path %>
-            </li>
-          <% end %>
-        </ul>
-            <%= form_tag(representatives_path, :method => "get", id: "search-form", class: "navbar-form navbar-right") do %>
-                <%= text_field_tag :search, params[:search], placeholder: "Search Representatives" %>
-                <%= submit_tag "Search", :name => nil %>
-            <% end %>
-      </div>
-    </nav>
     <%= react_component("Navigation", props: { user: @user }, prerender: false) %>
-
+    
     <div class="container">
       <% if !flash.empty? %>
           <div class="row">
