@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, FormGroup, FormControl, Button, Nav, NavDropdown, NavItem } from 'react-bootstrap';
-import LoginForm from './LoginForm'
+import LoginForm from './loginForm'
 
 class Navigation extends React.Component {
   constructor(props) {
