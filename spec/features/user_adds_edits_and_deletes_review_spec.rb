@@ -7,11 +7,6 @@ feature "User does stuff with reviews", js: true do
 
   scenario "User sees review form review" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
 
@@ -21,11 +16,6 @@ feature "User does stuff with reviews", js: true do
 
   scenario "User adds review successfully" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
     page.find('a', :text => 'Review this Representative').click
@@ -40,11 +30,6 @@ feature "User does stuff with reviews", js: true do
 
   scenario "User add review unsuccessful" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
     page.find('a', :text => 'Review this Representative').click

@@ -8,11 +8,6 @@ feature "User does stuff with comments", js: true, server_rendering: true do
 
   scenario "User shows add comment form" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
     click_on "Add a Comment!"
@@ -22,11 +17,6 @@ feature "User does stuff with comments", js: true, server_rendering: true do
 
   scenario "User adds comment successfully" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
     click_on "Add a Comment!"
@@ -38,11 +28,6 @@ feature "User does stuff with comments", js: true, server_rendering: true do
 
   scenario "User add comment unsuccessful" do
     visit root_path
-    click_link "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
 
     click_on "View Rep"
     click_on "Add a Comment!"
