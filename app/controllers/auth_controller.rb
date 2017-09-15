@@ -1,9 +1,10 @@
 class AuthController < ApplicationController
   def is_signed_in?
+    user = current_user.to_json
     if user_signed_in?
-      render :json => {"signed_in" => true, "user" => current_user}.to_json()
+      render json: user
     else
-      render :json => {"signed_in" => false}.to_json()
+      render status: :unprocessable_entity
     end
 
   end

@@ -7,7 +7,8 @@ class ReviewForm extends React.Component {
     this.state = {
       headline: "",
       body: "",
-      rating: ""
+      rating: "",
+      userLogError: false
     }
     this.getValidationState = this.getValidationState.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -51,22 +52,30 @@ class ReviewForm extends React.Component {
       user_id: this.props.userId
     }};
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
-    fetch('/api/v1'+window.location.pathname+'/reviews', {
+    fetch(window.location.pathname+'/reviews', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',
       body: JSON.stringify(formPayload)
     }).then(response => {
-      let newReview = response.json()
-      return newReview
+      if (response.status == 401) {
+        this.userNotSignedIn();
+      } else {
+        let newReview = response.json()
+        return newReview
+      }
     }).then(newReview => {
       this.props.newReview(newReview);
       this.clearForm()
     })
   }
 
+  userNotSignedIn() {
+    this.setState({userLogError: true})
+  }
+
   clearForm(){
-    this.setState({headline: "", body: "", rating: ""})
+    this.setState({headline: "", body: "", rating: "", userLogError: false})
   }
 
   render() {
@@ -131,6 +140,7 @@ class ReviewForm extends React.Component {
           <Button type='submit' onClick={this.handleSubmit} disabled={disabled}>
             Submit
           </Button>
+          {this.state.userLogError && <div className="alert alert-danger">You must be logged in to post!</div>}
         </form>
       </Col>
     );

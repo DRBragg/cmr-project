@@ -3,7 +3,7 @@
   <head>
     <title>On Blast</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'index-page-bundle' %>
 
   </head>
@@ -36,6 +36,7 @@
             <% end %>
       </div>
     </nav>
+    <%= react_component("Navigation", props: { user: @user }, prerender: false) %>
 
     <div class="container">
       <% if !flash.empty? %>
