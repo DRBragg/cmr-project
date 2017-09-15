@@ -8,23 +8,13 @@ class IndexPage extends React.Component {
   render() {
     return(
       <Grid className="background">
-        <Row className="text-center">
-          <Col >
-          </Col>
-          <Col xs={10} md={6} lg={2} className="text-center">
+        <Row>
+          <Col xs={12} className="text-center">
             <PageTitle title={this.props.title} />
-          </Col>
-          <Col >
           </Col>
         </Row>
         <Row>
-          <Col>
-          </Col>
-          <Col className="card-display">
-            <CardsGroup reps={this.props.data} />
-          </Col>
-          <Col>
-          </Col>
+          <CardsGroup reps={this.props.data} />
         </Row>
         <Row className="row-padding">
           <Col xs={12} className="text-center">
