@@ -6,28 +6,23 @@ feature "User visits a representative's show page", js: true, server_rendering: 
   let!(:review1) {FactoryGirl.create(:review, representative: representative1, user: user1)}
   let!(:comment1) {FactoryGirl.create(:comment, review: review1, user: user1)}
 
-  scenario "User is not signed in" do
+  scenario "User views rep page" do
     visit root_path
     click_on "View Rep"
 
-    expect(page).to_not have_content("Edit Comment")
-    expect(page).to_not have_button("Delete Comment")
-
+    expect(page).to have_content(representative1.first_name)
+    expect(page).to have_content(representative1.last_name)
   end
 
-  scenario "User is signed in" do
+  scenario "User sees more rep info" do
     visit root_path
-    click_link "Sign In"
-    fill_in "Email", with: user1.email
-    fill_in "user_password", with: user1.password
-    click_button "Sign In"
+
     click_on "View Rep"
 
     page.find('a', :text => 'Biography').click
     page.find('a', :text => 'Contact').click
 
-    expect(page).to have_content(representative1.first_name)
-    expect(page).to have_content(representative1.last_name)
+
     expect(page).to have_content(representative1.office)
     expect(page).to have_content(representative1.party)
     expect(page).to have_content(representative1.email)

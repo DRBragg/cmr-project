@@ -8,16 +8,30 @@ feature "User adds new representative", js: true, server_rendering: true do
 
     click_on "Add New Representative"
 
+    fill_in 'Email', with: user1.email
+    fill_in 'user_password', with: user1.password
+    click_button "Sign In"
+
     expect(page).to have_content("Put a new Representative on blast!")
     expect(page).to have_button("Add Representative")
   end
 
-  scenario "Create is successful" do
-    ActionMailer::Base.deliveries = []
-
+  scenario "Visitor tries to add a new rep" do
     visit root_path
 
     click_on "Add New Representative"
+
+    expect(page).to have_content("You need to sign in or sign up before continuing")
+  end
+
+  scenario "Create is successful" do
+    visit root_path
+
+    click_on "Add New Representative"
+
+    fill_in 'Email', with: user1.email
+    fill_in 'user_password', with: user1.password
+    click_button "Sign In"
 
     fill_in "First Name", with: "Bob"
     fill_in "Last Name", with: "Jones"
@@ -37,7 +51,13 @@ feature "User adds new representative", js: true, server_rendering: true do
 
       click_on "Add New Representative"
 
+      fill_in 'Email', with: user1.email
+      fill_in 'user_password', with: user1.password
+      click_button "Sign In"
+
       click_button "Add Representative"
+
+      click_on "Add New Representative"
 
       expect(page).to have_content("Phone number can't be blank, Phone number is invalid, First name can't be blank, Last name can't be blank, Office can't be blank, Bio can't be blank, Bio is too short (minimum is 10 characters), Picture url can't be blank, Email is invalid")
     end
