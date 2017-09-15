@@ -7,9 +7,15 @@ class Navigation extends React.Component {
     super(props);
     this.state = {
       currentUser: this.props.user
+      search: ""
     }
     this.signIn = this.signIn.bind(this)
     this.signOut = this.signOut.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
+  handleSearch(){
+    href={this.stat}
   }
 
   signIn() {
@@ -49,10 +55,10 @@ class Navigation extends React.Component {
         </Nav>
         <Navbar.Form>
           <FormGroup>
-            <FormControl type="text" placeholder="Search" />
+            <FormControl type="text" placeholder="Search" value={this.state.search} />
           </FormGroup>
           {' '}
-          <Button type="submit">Submit</Button>
+          <Button type="submit" href=`/${this.state.search}/`>Submit</Button>
         </Navbar.Form>
       </Navbar>
     )
