@@ -57,7 +57,7 @@ class CommentForm extends React.Component {
       disabled = true
     }
     return (
-      <form>
+      <form className="background">
         <FormGroup
           controlId="formBasicText"
           validationState={this.getValidationState()}

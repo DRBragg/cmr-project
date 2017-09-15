@@ -6,7 +6,7 @@ import RepInfo from './RepInfo';
 
 const RepData = (props) => {
   return(
-    <Row>
+    <Row className="background">
       <RepImage url={props.rep.picture_url} />
       <RepInfo rep={props.rep} newReview={props.newReview} userId={props.userId} />
     </Row>

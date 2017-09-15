@@ -80,7 +80,7 @@ class ReviewForm extends React.Component {
 
     return (
       <Col xs={6} xsOffset={3}>
-        <form>
+        <form className="background">
           <FormGroup
             controlId="formHeadlineText"
             validationState={this.getValidationState("headline")}

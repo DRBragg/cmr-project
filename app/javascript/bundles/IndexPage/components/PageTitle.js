@@ -4,11 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 
 const PageTitle = (props) => {
   return(
-    <Row>
-      <Col xs={12} className="text-center">
+    <div>
         <h1>{props.title}</h1>
-      </Col>
-    </Row>
+    </div>  
   )
 }
 

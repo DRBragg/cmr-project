@@ -31,7 +31,7 @@ class RepPage extends React.Component {
 
   render() {
     return(
-      <Grid>
+      <Grid className="background">
         <PageTitle title={this.state.rep.first_name + " " + this.state.rep.last_name} />
         <RepData userId={this.props.userId} rep={this.state.rep} newReview={this.handleNewReview} />
         <RepReviews newComment={this.handleNewComment} reviews={this.state.reviews} comments={this.state.comments} user={this.props.user} userId={this.props.userId} repId={this.state.rep.id}/>
