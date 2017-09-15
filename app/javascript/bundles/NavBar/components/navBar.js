@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, FormGroup, FormControl, Button, Nav, NavDropdown, NavItem } from 'react-bootstrap';
-import LoginForm from './loginForm'
+import LoginForm from './LoginForm'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -41,8 +41,8 @@ class Navigation extends React.Component {
     return(
       <Navbar>
         <Navbar.Header>
-          <Navbar.Brand>
-            <a href="/">On Blast</a>
+          <Navbar.Brand className="logo">
+            <a href="/">ONBLAST!</a>
           </Navbar.Brand>
         </Navbar.Header>
 
