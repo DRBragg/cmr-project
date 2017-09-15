@@ -7,7 +7,7 @@ class Api::V1::ReviewsController < ApplicationController
   def create
     data = JSON.parse(request.body.read)
     newReview = Review.new
-    newReview.assign_attributes(headline: data["headline"], body: data["body"], rating: data["rating"], representative: Representative.find(data["representative_id"]), user: User.find(data["user_id"]))
+    newReview.assign_attributes(headline: data["review"]["headline"], body: data["review"]["body"], rating: data["review"]["rating"], representative: Representative.find(data["review"]["representative_id"]), user: User.find(data["review"]["user_id"]))
     if newReview.save
       render json: newReview
     else

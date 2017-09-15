@@ -43,13 +43,13 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let formPayload = {
+    let formPayload = { review: {
       headline: this.state.headline,
       body: this.state.body,
       rating: parseInt(this.state.rating),
       representative_id: this.props.repId,
       user_id: this.props.userId
-    };
+    }};
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
     fetch('/api/v1'+window.location.pathname+'/reviews', {
       method: 'POST',

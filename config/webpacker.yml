@@ -48,7 +48,10 @@ test:
 
 production:
   <<: *default
+<<<<<<< HEAD
   
+=======
+>>>>>>> master
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 
