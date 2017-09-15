@@ -6,11 +6,14 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: this.props.user
+      currentUser: this.props.user,
+      search: ""
     }
     this.signIn = this.signIn.bind(this)
     this.signOut = this.signOut.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
+
 
   signIn() {
     this.setState({currentUser: true})
@@ -27,6 +30,10 @@ class Navigation extends React.Component {
         this.setState({currentUser: false});
       }
     })
+  }
+
+  handleChange(e){
+    this.setState({search: e.target.value})
   }
 
   render() {
@@ -49,10 +56,10 @@ class Navigation extends React.Component {
         </Nav>
         <Navbar.Form>
           <FormGroup>
-            <FormControl type="text" placeholder="Search" />
+            <FormControl type="text" placeholder="Search" value={this.state.search} onChange={this.handleChange} />
           </FormGroup>
           {' '}
-          <Button type="submit">Submit</Button>
+          <Button type="submit" href={"/representatives?utf8=✓&search="+this.state.search}>Submit</Button>
         </Navbar.Form>
       </Navbar>
     )
