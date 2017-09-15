@@ -3,8 +3,12 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
 
-.nav-link-right {
-  float: right;
+body {
+  background-image: url("https://image.ibb.co/jc2AB5/onblastbackground.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 ul li img {
@@ -12,9 +16,94 @@ ul li img {
   padding-top: 3px;
 }
 
-.card-image {
+img {
+  width: 150px;
+  height: 175px;
+  margin-bottom: 10px;
+  max-height: 75%;
+  max-width: 75%;
+}
 
-   width: 200px;
-   height: 250px;
-   margin-bottom: 5px;
+.navbar {
+  background-color: #0B0B61;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+.navbar-header {
+  color: white;
+}
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.yellow {
+  background-color: #F0AD4E;
+}
+body {
+  background-color: #B40404;
+}
+div.container {
+  margin: auto;
+}
+div.text-center {
+  color: white;
+  align-items: center;
+}
+
+div.row-padding.row {
+  align-content: center;
+}
+div.text-center.col-lg-2.col-md-6.col-xs-10 {
+  display: block;
+}
+div.background.container {
+    width: 1500px;
+}
+
+.size {
+  width: 50%;
+  position: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buffer {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.padding {
+  margin: 10px;
+}
+
+.form-row [class^="col-"] {
+  padding-top: 0;
+  padding-bottom: 2em;
+}
+
+.form-row [class^="col-"]:not(:last-of-type) {
+  padding-right: $form-group-margin-bottom / 2;
+}
+
+.form-row [class^="col-"]:not(:first-of-type) {
+  padding-left: $form-group-margin-bottom / 2;
+}
+
+.row-padding {
+  margin-bottom: 2em;
+}
+
+.spacing {
+  font-size: 18px;
+  padding: 5px;
+  border: 5px;
+}
+
+.button {
+  background-color: #B40404;
+  color: white;
+
 }
