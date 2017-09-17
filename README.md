@@ -6,20 +6,8 @@ On Blast
 [![Coverage Status](https://coveralls.io/repos/github/DRBragg/on-blast/badge.svg?branch=master)](https://coveralls.io/github/DRBragg/on-blast?branch=master)
 [![Code Climate](https://codeclimate.com/github/DRBragg/on-blast/badges/gpa.svg)](https://codeclimate.com/github/DRBragg/on-blast)
 
-#Major operational changes with adding react.
+# On Blast Representative Review site
 
-$ git pull on master
+Allows users to review and comment on their local representatives.
 
-$ git checkout react_components
-
-$ bundle
-
-$ yarn
-
-to start dev server run:
-
-$ `foreman start -f Procfile.dev`
-
-testing can still be done with $ `rspec`, BUT!
-
-first run $ `brew install phantomjs` so that our tests will run with our headless browser
+See app Live at: http://on-blast.herokuapp.com/
