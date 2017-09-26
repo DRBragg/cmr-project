@@ -3,6 +3,7 @@ class RepresentativesController < ApplicationController
 
   def index
     @user = current_user
+    @user_signed_in = user_signed_in?
     @representatives = Representative.all
 
     if params[:search]
@@ -22,7 +23,8 @@ class RepresentativesController < ApplicationController
     @reviews.each do |review|
       @comments[review.id] = review.comments
     end
-    @user = user_signed_in?
+    @user = current_user
+    @user_signed_in = user_signed_in?
     @user_id = 0
     if user_signed_in?
       @user_id = current_user.id
